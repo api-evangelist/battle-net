@@ -1,0 +1,64 @@
+capability:
+  name: Battle.net Gaming Data
+  description: >-
+    Battle.net API capabilities for accessing Blizzard Entertainment game data and player
+    profiles across World of Warcraft, Diablo III, Hearthstone, and StarCraft II via
+    OAuth 2.0-secured REST endpoints.
+  categories:
+    - name: World of Warcraft Game Data
+      description: Static and dynamic WoW game data APIs requiring client credentials OAuth.
+      operations:
+        - name: Get Achievement
+          description: Retrieve achievement details by ID.
+        - name: Get Auction House
+          description: Retrieve current auction house listings for a realm.
+        - name: Get Character Classes
+          description: Retrieve list of playable character classes.
+        - name: Get Realm
+          description: Retrieve realm details by slug.
+        - name: Get Item
+          description: Retrieve item details by ID.
+        - name: Get PvP Leaderboard
+          description: Retrieve PvP ladder leaderboard for a bracket.
+    - name: World of Warcraft Profile
+      description: Player profile APIs requiring authorization code OAuth with user consent.
+      operations:
+        - name: Get Character Summary
+          description: Retrieve character summary for an authenticated player's character.
+        - name: Get Character Equipment
+          description: Retrieve equipped items for a character.
+        - name: Get Character Achievements
+          description: Retrieve achievement history for a character.
+        - name: Get Mythic Keystone Profile
+          description: Retrieve mythic+ keystone run history for a character.
+    - name: Hearthstone Game Data
+      description: Hearthstone card and deck data APIs.
+      operations:
+        - name: Search Cards
+          description: Search Hearthstone cards with filters for class, set, type, rarity.
+        - name: Get Card
+          description: Retrieve a specific card by ID or slug.
+        - name: Get Card Backs
+          description: Retrieve available card back cosmetics.
+        - name: Get Deck
+          description: Retrieve deck information by deck code.
+        - name: Get Metadata
+          description: Retrieve metadata including card sets, classes, types, rarities, keywords.
+    - name: StarCraft II Data
+      description: StarCraft II game data and community profile APIs.
+      operations:
+        - name: Get League Data
+          description: Retrieve league data for a season and game mode.
+        - name: Get Player Profile
+          description: Retrieve StarCraft II player profile data.
+        - name: Get Grandmaster Leaderboard
+          description: Retrieve grandmaster ladder rankings for a region.
+    - name: Diablo III Data
+      description: Diablo III season and era data APIs.
+      operations:
+        - name: Get Season Index
+          description: Retrieve list of available seasons.
+        - name: Get Season Leaderboard
+          description: Retrieve leaderboard for a specific season and category.
+        - name: Get Character Profile
+          description: Retrieve Diablo III character profile for a BattleTag.

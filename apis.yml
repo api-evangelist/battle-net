@@ -9,6 +9,7 @@ description: >-
   enabling developers to build applications that access character data, game statistics,
   leaderboards, card collections, and auction house data.
 type: Index
+x-type: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Games
@@ -20,7 +21,7 @@ tags:
   - Starcraft
 access: 3rd-Party
 created: '2025-03-01'
-modified: '2026-04-19'
+modified: '2026-04-21'
 position: Consumer
 specificationVersion: '0.19'
 apis:
@@ -254,6 +255,8 @@ common:
     url: rules/battle-net-spectral-rules.yml
   - type: Vocabulary
     url: vocabulary/battle-net-vocabulary.yaml
+  - type: NaftikoCapability
+    url: capabilities/gaming-data.yaml
   - type: Integrations
     data:
       - name: Passport.js
