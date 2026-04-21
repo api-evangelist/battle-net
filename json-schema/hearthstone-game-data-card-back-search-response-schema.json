@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-schema/hearthstone-game-data-card-back-search-response-schema.json",
+  "title": "CardBackSearchResponse",
+  "description": "A paginated list of Hearthstone card backs.",
+  "type": "object",
+  "properties": {
+    "cardBacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique ID of the card back.",
+            "example": 1
+          },
+          "sortCategory": {
+            "type": "integer",
+            "description": "The sort category.",
+            "example": 2
+          },
+          "text": {
+            "type": "string",
+            "description": "Description of the card back.",
+            "example": "The standard card back for Hearthstone."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the card back.",
+            "example": "Classic"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the card back image.",
+            "example": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png"
+          },
+          "slug": {
+            "type": "string",
+            "description": "A human-readable identifier for the card back.",
+            "example": "classic"
+          }
+        },
+        "description": "A Hearthstone card back object."
+      },
+      "description": "List of matching card backs."
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Total number of matching card backs.",
+      "example": 150
+    },
+    "pageCount": {
+      "type": "integer",
+      "description": "Total number of pages.",
+      "example": 8
+    },
+    "page": {
+      "type": "integer",
+      "description": "Current page number.",
+      "example": 1
+    }
+  }
+}

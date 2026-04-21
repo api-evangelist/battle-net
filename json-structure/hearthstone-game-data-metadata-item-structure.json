@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-metadata-item-structure.json",
+  "name": "MetadataItem",
+  "description": "A generic metadata item.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "The unique ID of the metadata item.",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the metadata item.",
+      "example": "Basic"
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug identifier.",
+      "example": "basic"
+    }
+  }
+}

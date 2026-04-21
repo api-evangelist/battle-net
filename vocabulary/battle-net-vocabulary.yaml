@@ -1,0 +1,238 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Battle.net"
+  description: "Vocabulary covering the Battle.net API ecosystem for Blizzard games including World of Warcraft, Diablo III, Hearthstone, and StarCraft II."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: hearthstone-game-data
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/hearthstone
+      status: active
+    - namespace: world-of-warcraft-game-data
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/data/wow
+      status: active
+    - namespace: world-of-warcraft-profile
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/profile/wow
+      status: active
+    - namespace: diablo-3-game-data
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/data/d3
+      status: active
+    - namespace: diablo-3-community
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/d3
+      status: active
+    - namespace: starcraft-2-game-data
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/data/sc2
+      status: active
+    - namespace: starcraft-2-community
+      version: "1.0"
+      baseUrl: https://us.api.blizzard.com/sc2
+      status: active
+    - namespace: battle-net-oauth
+      version: "2.0"
+      baseUrl: https://oauth.battle.net
+      status: active
+
+  resources:
+    - name: cards
+      api: hearthstone-game-data
+      actions: [search, get]
+      description: Hearthstone collectible and uncollectible cards
+    - name: card-backs
+      api: hearthstone-game-data
+      actions: [search, get]
+      description: Hearthstone card back cosmetics
+    - name: decks
+      api: hearthstone-game-data
+      actions: [get]
+      description: Hearthstone deck definitions encoded as deck codes
+    - name: metadata
+      api: hearthstone-game-data
+      actions: [get]
+      description: Hearthstone reference data including sets, classes, types, rarities, keywords
+    - name: characters
+      api: world-of-warcraft-profile
+      actions: [get]
+      description: World of Warcraft player character profiles
+    - name: realms
+      api: world-of-warcraft-game-data
+      actions: [list, get]
+      description: World of Warcraft realm (server) data
+    - name: seasons
+      api: diablo-3-game-data
+      actions: [list, get]
+      description: Diablo III season data and leaderboards
+    - name: profiles
+      api: starcraft-2-community
+      actions: [get]
+      description: StarCraft II player profile data
+    - name: leagues
+      api: starcraft-2-game-data
+      actions: [get]
+      description: StarCraft II league data
+
+  actions:
+    - name: search
+      methods: [GET]
+      pattern: query
+      description: Search resources with filter parameters
+    - name: get
+      methods: [GET]
+      pattern: read
+      description: Retrieve a specific resource by ID or slug
+    - name: list
+      methods: [GET]
+      pattern: read
+      description: List all resources of a type
+
+  schemas:
+    core:
+      - name: Card
+        api: hearthstone-game-data
+        description: A Hearthstone card with stats, image URLs, and metadata
+      - name: CardBack
+        api: hearthstone-game-data
+        description: A Hearthstone card back cosmetic item
+      - name: Deck
+        api: hearthstone-game-data
+        description: A Hearthstone deck with card list and class
+      - name: Metadata
+        api: hearthstone-game-data
+        description: Hearthstone reference data for sets, classes, types, rarities
+      - name: MetadataItem
+        api: hearthstone-game-data
+        description: A single metadata reference item with id, name, and slug
+
+  parameters:
+    pagination:
+      - name: page
+        type: integer
+        description: Page number for paginated results
+      - name: pageSize
+        type: integer
+        description: Number of results per page, maximum 500
+    filters:
+      - name: set
+        type: string
+        description: Card set slug filter
+      - name: class
+        type: string
+        description: Card class slug filter
+      - name: manaCost
+        type: integer
+        description: Mana cost filter for cards
+      - name: rarity
+        type: string
+        description: Card rarity slug filter
+      - name: type
+        type: string
+        description: Card type slug filter
+      - name: keyword
+        type: string
+        description: Card keyword slug filter
+      - name: gameMode
+        type: string
+        description: Game mode filter (constructed, battlegrounds, arena)
+      - name: locale
+        type: string
+        description: Locale for localized response data
+
+  enums:
+    game-modes:
+      - constructed
+      - battlegrounds
+      - arena
+      - duels
+      - twist
+    regions:
+      - us
+      - eu
+      - apac
+    sort-orders:
+      - asc
+      - desc
+    card-sort-fields:
+      - manaCost
+      - attack
+      - health
+      - name
+      - dateAdded
+      - groupByClass
+
+  authentication:
+    schemes:
+      - type: oauth2
+        flow: clientCredentials
+        tokenUrl: https://oauth.battle.net/token
+        description: Client credentials flow for game data APIs requiring no user consent
+      - type: oauth2
+        flow: authorizationCode
+        authorizeUrl: https://oauth.battle.net/authorize
+        tokenUrl: https://oauth.battle.net/token
+        description: Authorization code flow for player profile APIs requiring user consent
+    scopes:
+      - name: wow.profile
+        description: Access World of Warcraft character profile data
+      - name: sc2.profile
+        description: Access StarCraft II profile data
+      - name: d3.profile
+        description: Access Diablo III profile data
+      - name: openid
+        description: OpenID Connect scope for Battle.net identity
+
+capability:
+  workflows: []
+  personas:
+    - id: game-developer
+      name: Game Developer
+      description: Developers building companion apps, stat trackers, or tools for Blizzard games
+    - id: hearthstone-player
+      name: Hearthstone Player
+      description: Players using deck-building tools and card databases
+    - id: wow-player
+      name: World of Warcraft Player
+      description: Players tracking character progress, gear, and achievements
+  domains:
+    - name: Game Data
+      description: Static and dynamic game reference data
+    - name: Player Profiles
+      description: Authenticated player-specific data
+    - name: Leaderboards
+      description: Competitive rankings and season data
+    - name: Authentication
+      description: OAuth token management
+  namespaces:
+    - name: hearthstone
+      type: consumed
+      baseUri: https://us.api.blizzard.com/hearthstone
+  binds:
+    - name: BATTLE_NET_CLIENT_ID
+      description: OAuth 2.0 client ID from Battle.net developer portal
+    - name: BATTLE_NET_CLIENT_SECRET
+      description: OAuth 2.0 client secret from Battle.net developer portal
+
+crossReference:
+  - resource: cards
+    operations: [searchCards, getCard]
+    workflows: []
+    personas: [hearthstone-player, game-developer]
+  - resource: card-backs
+    operations: [searchCardBacks, getCardBack]
+    workflows: []
+    personas: [hearthstone-player, game-developer]
+  - resource: decks
+    operations: [getDeck]
+    workflows: []
+    personas: [hearthstone-player, game-developer]
+  - resource: metadata
+    operations: [getMetadata, getMetadataType]
+    workflows: []
+    personas: [game-developer]

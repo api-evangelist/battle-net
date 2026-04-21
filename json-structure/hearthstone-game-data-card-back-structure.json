@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-card-back-structure.json",
+  "name": "CardBack",
+  "description": "A Hearthstone card back object.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "The unique ID of the card back.",
+      "example": 1
+    },
+    "sortCategory": {
+      "type": "int32",
+      "description": "The sort category.",
+      "example": 2
+    },
+    "text": {
+      "type": "string",
+      "description": "Description of the card back.",
+      "example": "The standard card back for Hearthstone."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the card back.",
+      "example": "Classic"
+    },
+    "image": {
+      "type": "uri",
+      "description": "URL of the card back image.",
+      "example": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png"
+    },
+    "slug": {
+      "type": "string",
+      "description": "A human-readable identifier for the card back.",
+      "example": "classic"
+    }
+  }
+}

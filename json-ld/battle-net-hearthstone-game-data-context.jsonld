@@ -1,0 +1,180 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bnet": "https://develop.battle.net/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "MetadataItem": "bnet:MetadataItem",
+    "id": {
+      "@id": "bnet:id",
+      "@type": "xsd:integer"
+    },
+    "name": "schema:name",
+    "slug": {
+      "@id": "bnet:slug",
+      "@type": "xsd:string"
+    },
+    "Deck": "bnet:Deck",
+    "deckCode": {
+      "@id": "bnet:deckCode",
+      "@type": "xsd:string"
+    },
+    "version": "schema:version",
+    "format": {
+      "@id": "bnet:format",
+      "@type": "xsd:string"
+    },
+    "class": {
+      "@id": "bnet:class",
+      "@type": "xsd:string"
+    },
+    "cards": {
+      "@id": "bnet:cards",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "bnet:count",
+      "@type": "xsd:integer"
+    },
+    "cardCount": {
+      "@id": "bnet:cardCount",
+      "@type": "xsd:integer"
+    },
+    "Metadata": "bnet:Metadata",
+    "sets": {
+      "@id": "bnet:sets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "setGroups": {
+      "@id": "bnet:setGroups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "classes": {
+      "@id": "bnet:classes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "keywords": {
+      "@id": "bnet:keywords",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "types": {
+      "@id": "bnet:types",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "rarities": {
+      "@id": "bnet:rarities",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "minionTypes": {
+      "@id": "bnet:minionTypes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "DeckClass": "bnet:DeckClass",
+    "DeckCard": "bnet:DeckCard",
+    "ErrorResponse": "bnet:ErrorResponse",
+    "code": {
+      "@id": "bnet:code",
+      "@type": "xsd:integer"
+    },
+    "type": {
+      "@id": "bnet:type",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "bnet:detail",
+      "@type": "xsd:string"
+    },
+    "CardBack": "bnet:CardBack",
+    "sortCategory": {
+      "@id": "bnet:sortCategory",
+      "@type": "xsd:integer"
+    },
+    "text": {
+      "@id": "bnet:text",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "bnet:image",
+      "@type": "@id"
+    },
+    "CardSearchResponse": "bnet:CardSearchResponse",
+    "collectible": {
+      "@id": "bnet:collectible",
+      "@type": "xsd:integer"
+    },
+    "classId": {
+      "@id": "bnet:classId",
+      "@type": "xsd:integer"
+    },
+    "multiClassIds": {
+      "@id": "bnet:multiClassIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cardTypeId": {
+      "@id": "bnet:cardTypeId",
+      "@type": "xsd:integer"
+    },
+    "cardSetId": {
+      "@id": "bnet:cardSetId",
+      "@type": "xsd:integer"
+    },
+    "rarityId": {
+      "@id": "bnet:rarityId",
+      "@type": "xsd:integer"
+    },
+    "artistName": {
+      "@id": "bnet:artistName",
+      "@type": "xsd:string"
+    },
+    "health": {
+      "@id": "bnet:health",
+      "@type": "xsd:integer"
+    },
+    "attack": {
+      "@id": "bnet:attack",
+      "@type": "xsd:integer"
+    },
+    "manaCost": {
+      "@id": "bnet:manaCost",
+      "@type": "xsd:integer"
+    },
+    "flavorText": {
+      "@id": "bnet:flavorText",
+      "@type": "xsd:string"
+    },
+    "cropImage": {
+      "@id": "bnet:cropImage",
+      "@type": "@id"
+    },
+    "childIds": {
+      "@id": "bnet:childIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pageCount": {
+      "@id": "bnet:pageCount",
+      "@type": "xsd:integer"
+    },
+    "page": {
+      "@id": "bnet:page",
+      "@type": "xsd:integer"
+    },
+    "CardBackSearchResponse": "bnet:CardBackSearchResponse",
+    "cardBacks": {
+      "@id": "bnet:cardBacks",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Card": "bnet:Card"
+  }
+}

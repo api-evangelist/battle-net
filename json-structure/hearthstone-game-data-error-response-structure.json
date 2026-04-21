@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-error-response-structure.json",
+  "name": "ErrorResponse",
+  "description": "An error response from the API.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "int32",
+      "description": "HTTP error code.",
+      "example": 404
+    },
+    "type": {
+      "type": "string",
+      "description": "Error type.",
+      "example": "BLZWEBAPI00000404"
+    },
+    "detail": {
+      "type": "string",
+      "description": "A description of the error.",
+      "example": "Not Found"
+    }
+  }
+}

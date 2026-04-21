@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-schema/hearthstone-game-data-deck-class-schema.json",
+  "title": "DeckClass",
+  "description": "The class associated with a deck.",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "The class slug.",
+      "example": "mage"
+    },
+    "id": {
+      "type": "integer",
+      "description": "The class ID.",
+      "example": 3
+    },
+    "name": {
+      "type": "string",
+      "description": "The class name.",
+      "example": "Mage"
+    }
+  }
+}

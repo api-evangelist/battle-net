@@ -1,0 +1,51 @@
+{
+  "sets": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "setGroups": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "keywords": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "rarities": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ],
+  "minionTypes": [
+    {
+      "id": 1,
+      "name": "Basic",
+      "slug": "basic"
+    }
+  ]
+}

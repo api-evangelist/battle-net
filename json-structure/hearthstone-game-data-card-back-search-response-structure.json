@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-card-back-search-response-structure.json",
+  "name": "CardBackSearchResponse",
+  "description": "A paginated list of Hearthstone card backs.",
+  "type": "object",
+  "properties": {
+    "cardBacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "int32",
+            "description": "The unique ID of the card back.",
+            "example": 1
+          },
+          "sortCategory": {
+            "type": "int32",
+            "description": "The sort category.",
+            "example": 2
+          },
+          "text": {
+            "type": "string",
+            "description": "Description of the card back.",
+            "example": "The standard card back for Hearthstone."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the card back.",
+            "example": "Classic"
+          },
+          "image": {
+            "type": "uri",
+            "description": "URL of the card back image.",
+            "example": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png"
+          },
+          "slug": {
+            "type": "string",
+            "description": "A human-readable identifier for the card back.",
+            "example": "classic"
+          }
+        },
+        "description": "A Hearthstone card back object."
+      },
+      "description": "List of matching card backs."
+    },
+    "cardCount": {
+      "type": "int32",
+      "description": "Total number of matching card backs.",
+      "example": 150
+    },
+    "pageCount": {
+      "type": "int32",
+      "description": "Total number of pages.",
+      "example": 8
+    },
+    "page": {
+      "type": "int32",
+      "description": "Current page number.",
+      "example": 1
+    }
+  }
+}

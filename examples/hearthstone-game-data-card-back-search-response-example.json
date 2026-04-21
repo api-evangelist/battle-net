@@ -1,0 +1,15 @@
+{
+  "cardBacks": [
+    {
+      "id": 1,
+      "sortCategory": 2,
+      "text": "The standard card back for Hearthstone.",
+      "name": "Classic",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png",
+      "slug": "classic"
+    }
+  ],
+  "cardCount": 150,
+  "pageCount": 8,
+  "page": 1
+}

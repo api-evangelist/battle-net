@@ -1,0 +1,24 @@
+{
+  "id": 52119,
+  "collectible": 1,
+  "slug": "52119-ragnaros-the-firelord",
+  "classId": 12,
+  "multiClassIds": [
+    100
+  ],
+  "cardTypeId": 4,
+  "cardSetId": 3,
+  "rarityId": 5,
+  "artistName": "Alex Horley Orlandelli",
+  "health": 8,
+  "attack": 8,
+  "manaCost": 8,
+  "name": "Ragnaros the Firelord",
+  "text": "Can't attack. At the end of your turn, deal 8 damage to a random enemy.",
+  "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf5f0b3ef6d61b6bec59a7a7a1d95b8f0d9d74d2.png",
+  "flavorText": "He was summoned by the Dark Iron dwarves.",
+  "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cropped/52119.jpg",
+  "childIds": [
+    46
+  ]
+}

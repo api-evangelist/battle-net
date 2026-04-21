@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-card-structure.json",
+  "name": "Card",
+  "description": "A Hearthstone card object.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "The card's unique ID.",
+      "example": 52119
+    },
+    "collectible": {
+      "type": "int32",
+      "description": "Indicates if the card is collectible (1) or uncollectible (0).",
+      "example": 1
+    },
+    "slug": {
+      "type": "string",
+      "description": "A human-readable identifier for the card.",
+      "example": "52119-ragnaros-the-firelord"
+    },
+    "classId": {
+      "type": "int32",
+      "description": "The class ID of the card.",
+      "example": 12
+    },
+    "multiClassIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Class IDs if the card belongs to multiple classes."
+    },
+    "cardTypeId": {
+      "type": "int32",
+      "description": "The card type ID.",
+      "example": 4
+    },
+    "cardSetId": {
+      "type": "int32",
+      "description": "The set ID of the card.",
+      "example": 3
+    },
+    "rarityId": {
+      "type": "int32",
+      "description": "The rarity ID of the card.",
+      "example": 5
+    },
+    "artistName": {
+      "type": "string",
+      "description": "The name of the card's artist.",
+      "example": "Alex Horley Orlandelli"
+    },
+    "health": {
+      "type": "int32",
+      "description": "The health of the minion.",
+      "example": 8
+    },
+    "attack": {
+      "type": "int32",
+      "description": "The attack power of the card.",
+      "example": 8
+    },
+    "manaCost": {
+      "type": "int32",
+      "description": "The mana cost to play the card.",
+      "example": 8
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the card.",
+      "example": "Ragnaros the Firelord"
+    },
+    "text": {
+      "type": "string",
+      "description": "The card's text.",
+      "example": "Can't attack. At the end of your turn, deal 8 damage to a random enemy."
+    },
+    "image": {
+      "type": "uri",
+      "description": "URL of the card image.",
+      "example": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf5f0b3ef6d61b6bec59a7a7a1d95b8f0d9d74d2.png"
+    },
+    "flavorText": {
+      "type": "string",
+      "description": "Flavor text for the card.",
+      "example": "He was summoned by the Dark Iron dwarves."
+    },
+    "cropImage": {
+      "type": "uri",
+      "description": "URL of the cropped card image.",
+      "example": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cropped/52119.jpg"
+    },
+    "childIds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "IDs of child cards."
+    }
+  }
+}

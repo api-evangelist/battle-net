@@ -1,0 +1,19 @@
+{
+  "deckCode": "AAECAf0EAA8A",
+  "version": 1,
+  "format": "standard",
+  "class": {
+    "slug": "mage",
+    "id": 3,
+    "name": "Mage"
+  },
+  "cards": [
+    {
+      "id": 52119,
+      "count": 2,
+      "slug": "52119-ragnaros-the-firelord",
+      "name": "Ragnaros the Firelord"
+    }
+  ],
+  "cardCount": 30
+}

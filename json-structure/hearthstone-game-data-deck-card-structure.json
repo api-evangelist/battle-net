@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/json-structure/hearthstone-game-data-deck-card-structure.json",
+  "name": "DeckCard",
+  "description": "A card included in a deck.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "The card ID.",
+      "example": 52119
+    },
+    "count": {
+      "type": "int32",
+      "description": "Number of copies of this card in the deck.",
+      "example": 2
+    },
+    "slug": {
+      "type": "string",
+      "description": "The card slug.",
+      "example": "52119-ragnaros-the-firelord"
+    },
+    "name": {
+      "type": "string",
+      "description": "The card name.",
+      "example": "Ragnaros the Firelord"
+    }
+  }
+}
