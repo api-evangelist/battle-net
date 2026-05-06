@@ -8,192 +8,107 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Battle.net
 providerId: battle-net
-publisherName: Battle.net
-serviceCategory: API
+publisherName: Blizzard Entertainment, Inc.
+serviceCategory: Gaming / Developer APIs
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Games
   - Gaming
   - Blizzard
-  - World Of Warcraft
-  - Diablo
-  - Hearthstone
-  - Starcraft
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Battle.net API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for the Battle.net Developer APIs: zero direct cost (free, rate-limited
+  developer access), so FinOps focuses on attribution, rate-limit utilization, and partner-access decisions
+  rather than billed spend.'
+sources:
+  - https://develop.battle.net/access/clients
+  - https://community.developer.battle.net/documentation
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Track requests per OAuth Client ID against the 100 req/s and 36,000 req/hr ceilings using
+      your own observability stack — Blizzard does not expose a usage API.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Issue a separate OAuth Client ID per consuming application or team to attribute usage
+      and avoid one team starving another against the shared per-client ceiling.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Cache static game-data responses (realms, classes, items) aggressively. The hourly ceiling
+      is the binding constraint; cached responses do not consume quota.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+    description: Designate an owner of the partner relationship with Blizzard Developer Relations who
+      can request elevated limits when an application's growth justifies it.
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: No Direct Charge
+  billingFrequency: Not Billed
   billingCurrency: USD
   chargeCategories:
     - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
+  chargeFrequency: One-Time
 focusColumns:
-  ServiceName: Battle.net
-  ServiceCategory: Developer Tools / API
+  ServiceName: Battle.net Developer APIs
+  ServiceCategory: Gaming / Developer APIs
   ProviderName: Battle.net
-  PublisherName: Battle.net
-  InvoiceIssuerName: Battle.net
-  PricingCategory: Usage-Based
+  PublisherName: Blizzard Entertainment, Inc.
+  InvoiceIssuerName: Blizzard Entertainment, Inc.
+  PricingCategory: No Direct Charge
   PricingUnit: request
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
   - name: api_requests
-    description: Count of billable API requests
+    description: Count of API requests per OAuth Client ID; for utilization tracking against the free-tier
+      ceilings, not for billing
     unit: request
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - oauth_client_id
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
+      - game
       - endpoint
-      - tier
+  - name: rate_limit_utilization
+    description: Percent of per-second / per-hour ceiling consumed; used to forecast when partner access
+      becomes necessary
+    unit: percent
+    aggregation: max
+    dimensions:
+      - oauth_client_id
+      - window
+  - name: cache_hits
+    description: Cached responses that did not consume Blizzard quota
+    unit: request
+    aggregation: count
+    dimensions:
+      - oauth_client_id
+      - endpoint
 apis:
   - name: World of Warcraft Game Data API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - World Of Warcraft
+    baseURL: https://us.api.blizzard.com
     serviceName: World of Warcraft Game Data API
     serviceCategory: API
   - name: World of Warcraft Profile API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - World Of Warcraft
-      - Player Profile
+    baseURL: https://us.api.blizzard.com
     serviceName: World of Warcraft Profile API
     serviceCategory: API
-  - name: World of Warcraft Classic Game Data API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - World Of Warcraft Classic
-    serviceName: World of Warcraft Classic Game Data API
-    serviceCategory: API
-  - name: Diablo III Game Data API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - Diablo
-    serviceName: Diablo III Game Data API
-    serviceCategory: API
-  - name: Diablo III Community API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - Diablo
-    serviceName: Diablo III Community API
+  - name: Diablo III API
+    baseURL: https://us.api.blizzard.com
+    serviceName: Diablo III API
     serviceCategory: API
   - name: Hearthstone Game Data API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - Hearthstone
+    baseURL: https://us.api.blizzard.com
     serviceName: Hearthstone Game Data API
     serviceCategory: API
-  - name: StarCraft II Game Data API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - Starcraft
-    serviceName: StarCraft II Game Data API
-    serviceCategory: API
-  - name: StarCraft II Community API
-    baseURL: ''
-    tags:
-      - Games
-      - Gaming
-      - Starcraft
-    serviceName: StarCraft II Community API
-    serviceCategory: API
-  - name: Battle.net OAuth API
-    baseURL: ''
-    tags:
-      - Authentication
-      - Gaming
-      - OAuth
-    serviceName: Battle.net OAuth API
+  - name: StarCraft II API
+    baseURL: https://us.api.blizzard.com
+    serviceName: StarCraft II API
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
   - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+    metric: '0 / active_consumers (no direct cost; opportunity cost = engineering time + partner relationship)'
+    target: track engineering hours instead
+  - name: Headroom Against Ceiling
+    metric: peak_requests_per_hour / 36000
+    target: '< 0.7 to trigger partner-access conversation'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
