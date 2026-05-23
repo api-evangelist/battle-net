@@ -1,0 +1,33 @@
+{
+  "operationId": "getDeck",
+  "method": "GET",
+  "path": "/hearthstone/deck",
+  "summary": "Battle.net Get Hearthstone Deck",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "GetDeck200Example",
+      "example": {
+        "deckCode": "AAECAf0EAA8A",
+        "version": 1,
+        "format": "standard",
+        "class": {
+          "slug": "mage",
+          "id": 3,
+          "name": "Mage"
+        },
+        "cards": [
+          {
+            "id": 52119,
+            "count": 1,
+            "slug": "52119-ragnaros-the-firelord",
+            "name": "Ragnaros the Firelord"
+          }
+        ],
+        "cardCount": 30
+      }
+    }
+  ]
+}

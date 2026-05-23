@@ -1,0 +1,13 @@
+name: Battle.net Domain Vocabulary
+provider: Battle.net
+providerId: battle-net
+description: Tag-derived vocabulary for the Battle.net API surface; sourced from openapi/ tags.
+terms:
+- term: Cards
+  description: Hearthstone card search and lookup
+- term: Card Backs
+  description: Hearthstone card back collections
+- term: Decks
+  description: Hearthstone deck lookup
+- term: Metadata
+  description: Hearthstone metadata including sets, classes, types, and keywords

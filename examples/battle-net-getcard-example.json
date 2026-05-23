@@ -1,0 +1,28 @@
+{
+  "operationId": "getCard",
+  "method": "GET",
+  "path": "/hearthstone/cards/{idOrSlug}",
+  "summary": "Battle.net Get Hearthstone Card",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "GetCard200Example",
+      "example": {
+        "id": 52119,
+        "collectible": 1,
+        "slug": "52119-ragnaros-the-firelord",
+        "classId": 12,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Ragnaros the Firelord",
+        "text": "Can't attack. At the end of your turn, deal 8 damage to a random enemy."
+      }
+    }
+  ]
+}

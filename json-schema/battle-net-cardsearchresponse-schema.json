@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CardSearchResponse",
+  "title": "Card Search Response",
+  "type": "object",
+  "description": "A paginated list of Hearthstone cards.",
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Card"
+      },
+      "description": "List of matching cards."
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Total number of matching cards.",
+      "example": 100
+    },
+    "pageCount": {
+      "type": "integer",
+      "description": "Total number of pages.",
+      "example": 5
+    },
+    "page": {
+      "type": "integer",
+      "description": "Current page number.",
+      "example": 1
+    }
+  }
+}

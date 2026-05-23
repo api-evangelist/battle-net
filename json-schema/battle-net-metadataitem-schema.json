@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MetadataItem",
+  "title": "Metadata Item",
+  "type": "object",
+  "description": "A generic metadata item.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique ID of the metadata item.",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the metadata item.",
+      "example": "Basic"
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug identifier.",
+      "example": "basic"
+    }
+  }
+}

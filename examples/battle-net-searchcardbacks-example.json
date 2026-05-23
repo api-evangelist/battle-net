@@ -1,0 +1,29 @@
+{
+  "operationId": "searchCardBacks",
+  "method": "GET",
+  "path": "/hearthstone/cardbacks",
+  "summary": "Battle.net Search Hearthstone Card Backs",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "SearchCardBacks200Example",
+      "example": {
+        "cardBacks": [
+          {
+            "id": 1,
+            "sortCategory": 2,
+            "text": "The standard card back for Hearthstone.",
+            "name": "Classic",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png",
+            "slug": "classic"
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      }
+    }
+  ]
+}

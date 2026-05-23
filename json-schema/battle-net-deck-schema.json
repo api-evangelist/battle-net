@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Deck",
+  "title": "Deck",
+  "type": "object",
+  "description": "A Hearthstone deck.",
+  "properties": {
+    "deckCode": {
+      "type": "string",
+      "description": "The deck code string.",
+      "example": "AAECAf0EAA8A"
+    },
+    "version": {
+      "type": "integer",
+      "description": "The deck version.",
+      "example": 1
+    },
+    "format": {
+      "type": "string",
+      "description": "The deck format (standard, wild, classic).",
+      "example": "standard"
+    },
+    "class": {
+      "$ref": "#/components/schemas/DeckClass"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DeckCard"
+      },
+      "description": "The cards in the deck."
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Total number of cards in the deck.",
+      "example": 30
+    }
+  }
+}

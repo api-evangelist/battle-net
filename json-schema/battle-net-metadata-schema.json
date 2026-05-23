@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Metadata",
+  "title": "Metadata",
+  "type": "object",
+  "description": "Hearthstone metadata including sets, classes, keywords, types, and rarities.",
+  "properties": {
+    "sets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of card sets."
+    },
+    "setGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of set groups."
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of classes."
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of keywords."
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of card types."
+    },
+    "rarities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of rarities."
+    },
+    "minionTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataItem"
+      },
+      "description": "List of minion types."
+    }
+  }
+}

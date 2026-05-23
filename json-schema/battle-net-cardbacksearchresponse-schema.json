@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CardBackSearchResponse",
+  "title": "Card Back Search Response",
+  "type": "object",
+  "description": "A paginated list of Hearthstone card backs.",
+  "properties": {
+    "cardBacks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CardBack"
+      },
+      "description": "List of matching card backs."
+    },
+    "cardCount": {
+      "type": "integer",
+      "description": "Total number of matching card backs.",
+      "example": 150
+    },
+    "pageCount": {
+      "type": "integer",
+      "description": "Total number of pages.",
+      "example": 8
+    },
+    "page": {
+      "type": "integer",
+      "description": "Current page number.",
+      "example": 1
+    }
+  }
+}

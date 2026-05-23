@@ -1,0 +1,72 @@
+{
+  "operationId": "getMetadata",
+  "method": "GET",
+  "path": "/hearthstone/metadata",
+  "summary": "Battle.net Get Hearthstone Metadata",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "GetMetadata200Example",
+      "example": {
+        "sets": [
+          {
+            "id": 1,
+            "name": "Basic",
+            "slug": "basic",
+            "type": "base",
+            "collectibleCount": 133,
+            "collectibleRevealedCount": 133,
+            "nonCollectibleCount": 48,
+            "nonCollectibleRevealedCount": 48
+          }
+        ],
+        "classes": [
+          {
+            "id": 3,
+            "name": "Mage",
+            "slug": "mage"
+          }
+        ],
+        "keywords": [
+          {
+            "id": 1,
+            "name": "Taunt",
+            "slug": "taunt",
+            "text": "Enemies must attack this minion."
+          }
+        ],
+        "types": [
+          {
+            "id": 4,
+            "name": "Minion",
+            "slug": "minion"
+          }
+        ],
+        "rarities": [
+          {
+            "id": 5,
+            "name": "Legendary",
+            "slug": "legendary",
+            "craftingCost": [
+              400,
+              1600
+            ],
+            "dustValue": [
+              400,
+              1600
+            ]
+          }
+        ],
+        "minionTypes": [
+          {
+            "id": 14,
+            "name": "Dragon",
+            "slug": "dragon"
+          }
+        ]
+      }
+    }
+  ]
+}

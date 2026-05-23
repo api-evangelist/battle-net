@@ -1,0 +1,22 @@
+{
+  "operationId": "getMetadataType",
+  "method": "GET",
+  "path": "/hearthstone/metadata/{type}",
+  "summary": "Battle.net Get Hearthstone Metadata Type",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "GetMetadataType200Example",
+      "example": [
+        {
+          "id": 1,
+          "name": "Basic",
+          "slug": "basic",
+          "type": "base"
+        }
+      ]
+    }
+  ]
+}

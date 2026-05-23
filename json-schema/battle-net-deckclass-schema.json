@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeckClass",
+  "title": "Deck Class",
+  "type": "object",
+  "description": "The class associated with a deck.",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "The class slug.",
+      "example": "mage"
+    },
+    "id": {
+      "type": "integer",
+      "description": "The class ID.",
+      "example": 3
+    },
+    "name": {
+      "type": "string",
+      "description": "The class name.",
+      "example": "Mage"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "provider": "Battle.net",
+  "providerId": "battle-net",
+  "kind": "json-structure",
+  "description": "Structural overview of the Battle.net API surface; extracted from openapi/.",
+  "schemaCount": 10,
+  "operationCount": 7,
+  "schemas": [
+    {
+      "name": "Card",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "CardSearchResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CardBack",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "CardBackSearchResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "DeckCard",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "DeckClass",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Deck",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "MetadataItem",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Metadata",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "ErrorResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/hearthstone/cards",
+      "operationId": "searchCards",
+      "summary": "Battle.net Search Hearthstone Cards",
+      "tags": [
+        "Cards"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/cards/{idOrSlug}",
+      "operationId": "getCard",
+      "summary": "Battle.net Get Hearthstone Card",
+      "tags": [
+        "Cards"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/cardbacks",
+      "operationId": "searchCardBacks",
+      "summary": "Battle.net Search Hearthstone Card Backs",
+      "tags": [
+        "Card Backs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/cardbacks/{idOrSlug}",
+      "operationId": "getCardBack",
+      "summary": "Battle.net Get Hearthstone Card Back",
+      "tags": [
+        "Card Backs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/deck",
+      "operationId": "getDeck",
+      "summary": "Battle.net Get Hearthstone Deck",
+      "tags": [
+        "Decks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/metadata",
+      "operationId": "getMetadata",
+      "summary": "Battle.net Get Hearthstone Metadata",
+      "tags": [
+        "Metadata"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hearthstone/metadata/{type}",
+      "operationId": "getMetadataType",
+      "summary": "Battle.net Get Hearthstone Metadata Type",
+      "tags": [
+        "Metadata"
+      ]
+    }
+  ]
+}
