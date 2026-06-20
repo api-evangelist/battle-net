@@ -7,7 +7,7 @@ description: Battle.net is Blizzard Entertainment's online gaming platform and d
   auction house data.
 type: Index
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Games
 - Gaming
