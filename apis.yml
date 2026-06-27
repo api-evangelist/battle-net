@@ -121,13 +121,13 @@ apis:
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
     title: Metadata Schema
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/hearthstone-game-data-cards.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/hearthstone-game-data-decks.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/hearthstone-game-data-metadata.yaml
 - aid: battle-net:starcraft-2-game-data
   name: StarCraft II Game Data API
@@ -189,10 +189,10 @@ common:
   url: https://us.forums.blizzard.com/en/blizzard/c/api-discussion
 - type: TermsOfService
   url: https://www.blizzard.com/en-us/legal/a2989b50-54f6-43f3-b55c-fa78e0ca3b38/blizzard-developer-api-terms-of-use
-- type: SDK
+- type: SDKs
   url: https://github.com/Blizzard/passport-bnet
   title: Passport.js Battle.net Strategy
-- type: SDK
+- type: SDKs
   url: https://github.com/Blizzard/omniauth-bnet
   title: OmniAuth Battle.net Strategy (Ruby)
 - type: CodeExamples
