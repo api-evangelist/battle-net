@@ -173,6 +173,8 @@ apis:
   - type: Authentication
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 common:
+- type: OAuthScopes
+  url: scopes/battle-net-scopes.yml
 - type: Portal
   url: https://community.developer.battle.net/
 - type: Documentation

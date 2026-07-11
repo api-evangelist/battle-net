@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: searched
+source: openapi/battle-net-hearthstone-game-data.yaml
+docs: https://community.developer.battle.net/documentation/guides/using-oauth
+schemes:
+- name: oauth2
+  source: openapi/battle-net-hearthstone-game-data.yaml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://oauth.battle.net/token
+  description: Battle.net OAuth 2.0 authentication. Use client credentials flow for game data
+    APIs.
+scopes:
+- scope: wow.profile
+  description: Access to a user's World of Warcraft characters.
+  sources:
+  - https://community.developer.battle.net/documentation/guides/using-oauth
+- scope: sc2.profile
+  description: Access to a user's StarCraft II profile.
+  sources:
+  - https://community.developer.battle.net/documentation/guides/using-oauth
+- scope: d3.profile
+  description: Access to a user's Diablo III profile.
+  sources:
+  - https://community.developer.battle.net/documentation/guides/using-oauth
+- scope: openid
+  description: Access details about a currently logged in user using OpenID Connect (OIDC).
+  sources:
+  - https://community.developer.battle.net/documentation/guides/using-oauth
