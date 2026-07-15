@@ -173,6 +173,8 @@ apis:
   - type: Authentication
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 common:
+- type: AgenticAccess
+  url: agentic-access/battle-net-agentic-access.yml
 - type: DomainSecurity
   url: security/battle-net-domain-security.yml
 - type: Authentication
