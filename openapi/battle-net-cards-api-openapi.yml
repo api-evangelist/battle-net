@@ -1,0 +1,393 @@
+openapi: 3.0.3
+info:
+  title: Battle.net Hearthstone Game Data Card Backs Cards API
+  description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
+  version: '1.0'
+  contact:
+    name: Blizzard Developer Relations
+    url: https://community.developer.battle.net/
+  termsOfService: https://www.blizzard.com/en-us/legal/a2989b50-54f6-43f3-b55c-fa78e0ca3b38/blizzard-developer-api-terms-of-use
+  x-generated-from: documentation
+servers:
+- url: https://us.api.blizzard.com
+  description: US Region
+- url: https://eu.api.blizzard.com
+  description: EU Region
+- url: https://apac.api.blizzard.com
+  description: APAC Region
+security:
+- oauth2: []
+tags:
+- name: Cards
+  description: Hearthstone card search and lookup
+paths:
+  /hearthstone/cards:
+    get:
+      operationId: searchCards
+      summary: Battle.net Search Hearthstone Cards
+      description: Returns an up-to-date list of all cards matching the search criteria. Input 1 or more search parameters to retrieve a list of cards.
+      tags:
+      - Cards
+      parameters:
+      - name: set
+        in: query
+        description: The slug of the set the card belongs to. If you do not supply a value, cards from all sets will be returned.
+        schema:
+          type: string
+        example: standard
+      - name: class
+        in: query
+        description: The slug of the card's class.
+        schema:
+          type: string
+        example: mage
+      - name: manaCost
+        in: query
+        description: The mana cost required to play the card. You can include multiple values in a comma-separated list of numeric values.
+        schema:
+          type: integer
+        example: 7
+      - name: attack
+        in: query
+        description: The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values.
+        schema:
+          type: integer
+        example: 5
+      - name: health
+        in: query
+        description: The health of the minion. You can include multiple values in a comma-separated list of numeric values.
+        schema:
+          type: integer
+        example: 5
+      - name: collectible
+        in: query
+        description: Whether a card is collectible. A value of 1 indicates that collectible cards are returned; 0 indicates uncollectible cards. To return all cards, use a value of 0,1.
+        schema:
+          type: string
+        example: '1'
+      - name: rarity
+        in: query
+        description: The rarity of a card. This value must match the rarity slugs found in metadata.
+        schema:
+          type: string
+        example: legendary
+      - name: type
+        in: query
+        description: The type of card (minion, spell, weapon, hero). This value must match the type slugs found in metadata.
+        schema:
+          type: string
+        example: minion
+      - name: minionType
+        in: query
+        description: The type of minion card (murloc, dragon, beast, etc). This value must match the minion type slugs found in metadata.
+        schema:
+          type: string
+        example: dragon
+      - name: keyword
+        in: query
+        description: A required keyword on the card (battlecry, deathrattle, taunt, etc). This value must match the keyword slugs found in metadata.
+        schema:
+          type: string
+        example: battlecry
+      - name: textFilter
+        in: query
+        description: A text string used to filter cards. You must include a locale along with the textFilter parameter.
+        schema:
+          type: string
+        example: Fireball
+      - name: gameMode
+        in: query
+        description: A recognized game mode (constructed or battlegrounds).
+        schema:
+          type: string
+          enum:
+          - constructed
+          - battlegrounds
+          - arena
+          - duels
+          - twist
+        example: constructed
+      - name: page
+        in: query
+        description: A page number.
+        schema:
+          type: integer
+          default: 1
+        example: 1
+      - name: pageSize
+        in: query
+        description: The number of results per page. Maximum value is 500; if pageSize is greater than 500 or not specified, it will be set to the maximum allowed value.
+        schema:
+          type: integer
+          maximum: 500
+        example: 20
+      - name: sort
+        in: query
+        description: The field used to sort the results. Valid values include manaCost, attack, health, and name.
+        schema:
+          type: string
+          enum:
+          - manaCost
+          - attack
+          - health
+          - name
+          - dateAdded
+          - groupByClass
+        example: manaCost
+      - name: order
+        in: query
+        description: The order in which to sort the results. Valid values are asc or desc.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        example: asc
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: A list of Hearthstone cards matching the search criteria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardSearchResponse'
+              examples:
+                SearchCards200Example:
+                  summary: Default searchCards 200 response
+                  x-microcks-default: true
+                  value:
+                    cards:
+                    - id: 52119
+                      collectible: 1
+                      slug: 52119-ragnaros-the-firelord
+                      classId: 12
+                      multiClassIds: []
+                      cardTypeId: 4
+                      cardSetId: 3
+                      rarityId: 5
+                      artistName: Alex Horley Orlandelli
+                      health: 8
+                      attack: 8
+                      manaCost: 8
+                      name: Ragnaros the Firelord
+                      text: Can't attack. At the end of your turn, deal 8 damage to a random enemy.
+                      image: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf5f0b3ef6d61b6bec59a7a7a1d95b8f0d9d74d2.png
+                      flavorText: He was summoned by the Dark Iron dwarves, but he's equal opportunity. He'll destroy everyone.
+                      cropImage: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cropped/52119.jpg
+                      childIds: []
+                    cardCount: 1
+                    pageCount: 1
+                    page: 1
+        '400':
+          description: Bad request due to invalid parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized. Missing or invalid access token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hearthstone/cards/{idOrSlug}:
+    get:
+      operationId: getCard
+      summary: Battle.net Get Hearthstone Card
+      description: Returns the card with an ID or slug that matches the one you specify.
+      tags:
+      - Cards
+      parameters:
+      - name: idOrSlug
+        in: path
+        required: true
+        description: The ID or slug of the card to retrieve.
+        schema:
+          type: string
+        example: 52119-ragnaros-the-firelord
+      - name: gameMode
+        in: query
+        description: A recognized game mode (constructed or battlegrounds).
+        schema:
+          type: string
+          enum:
+          - constructed
+          - battlegrounds
+        example: constructed
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: A Hearthstone card object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+              examples:
+                GetCard200Example:
+                  summary: Default getCard 200 response
+                  x-microcks-default: true
+                  value:
+                    id: 52119
+                    collectible: 1
+                    slug: 52119-ragnaros-the-firelord
+                    classId: 12
+                    cardTypeId: 4
+                    cardSetId: 3
+                    rarityId: 5
+                    health: 8
+                    attack: 8
+                    manaCost: 8
+                    name: Ragnaros the Firelord
+                    text: Can't attack. At the end of your turn, deal 8 damage to a random enemy.
+        '404':
+          description: Card not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Card:
+      type: object
+      title: Card
+      description: A Hearthstone card object.
+      properties:
+        id:
+          type: integer
+          description: The card's unique ID.
+          example: 52119
+        collectible:
+          type: integer
+          description: Indicates if the card is collectible (1) or uncollectible (0).
+          example: 1
+        slug:
+          type: string
+          description: A human-readable identifier for the card.
+          example: 52119-ragnaros-the-firelord
+        classId:
+          type: integer
+          description: The class ID of the card.
+          example: 12
+        multiClassIds:
+          type: array
+          items:
+            type: integer
+          description: Class IDs if the card belongs to multiple classes.
+        cardTypeId:
+          type: integer
+          description: The card type ID.
+          example: 4
+        cardSetId:
+          type: integer
+          description: The set ID of the card.
+          example: 3
+        rarityId:
+          type: integer
+          description: The rarity ID of the card.
+          example: 5
+        artistName:
+          type: string
+          description: The name of the card's artist.
+          example: Alex Horley Orlandelli
+        health:
+          type: integer
+          description: The health of the minion.
+          example: 8
+        attack:
+          type: integer
+          description: The attack power of the card.
+          example: 8
+        manaCost:
+          type: integer
+          description: The mana cost to play the card.
+          example: 8
+        name:
+          type: string
+          description: The name of the card.
+          example: Ragnaros the Firelord
+        text:
+          type: string
+          description: The card's text.
+          example: Can't attack. At the end of your turn, deal 8 damage to a random enemy.
+        image:
+          type: string
+          format: uri
+          description: URL of the card image.
+          example: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf5f0b3ef6d61b6bec59a7a7a1d95b8f0d9d74d2.png
+        flavorText:
+          type: string
+          description: Flavor text for the card.
+          example: He was summoned by the Dark Iron dwarves.
+        cropImage:
+          type: string
+          format: uri
+          description: URL of the cropped card image.
+          example: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cropped/52119.jpg
+        childIds:
+          type: array
+          items:
+            type: integer
+          description: IDs of child cards.
+    CardSearchResponse:
+      type: object
+      title: Card Search Response
+      description: A paginated list of Hearthstone cards.
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          description: List of matching cards.
+        cardCount:
+          type: integer
+          description: Total number of matching cards.
+          example: 100
+        pageCount:
+          type: integer
+          description: Total number of pages.
+          example: 5
+        page:
+          type: integer
+          description: Current page number.
+          example: 1
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Battle.net OAuth 2.0 authentication. Use client credentials flow for game data APIs.
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes: {}

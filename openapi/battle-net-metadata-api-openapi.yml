@@ -1,0 +1,239 @@
+openapi: 3.0.3
+info:
+  title: Battle.net Hearthstone Game Data Card Backs Metadata API
+  description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
+  version: '1.0'
+  contact:
+    name: Blizzard Developer Relations
+    url: https://community.developer.battle.net/
+  termsOfService: https://www.blizzard.com/en-us/legal/a2989b50-54f6-43f3-b55c-fa78e0ca3b38/blizzard-developer-api-terms-of-use
+  x-generated-from: documentation
+servers:
+- url: https://us.api.blizzard.com
+  description: US Region
+- url: https://eu.api.blizzard.com
+  description: EU Region
+- url: https://apac.api.blizzard.com
+  description: APAC Region
+security:
+- oauth2: []
+tags:
+- name: Metadata
+  description: Hearthstone metadata including sets, classes, types, and keywords
+paths:
+  /hearthstone/metadata:
+    get:
+      operationId: getMetadata
+      summary: Battle.net Get Hearthstone Metadata
+      description: Returns information about the categorization of cards. Metadata includes the list of sets, set groups, types, rarities, classes, keywords, and minion types.
+      tags:
+      - Metadata
+      parameters:
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: Hearthstone metadata object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metadata'
+              examples:
+                GetMetadata200Example:
+                  summary: Default getMetadata 200 response
+                  x-microcks-default: true
+                  value:
+                    sets:
+                    - id: 1
+                      name: Basic
+                      slug: basic
+                      type: base
+                      collectibleCount: 133
+                      collectibleRevealedCount: 133
+                      nonCollectibleCount: 48
+                      nonCollectibleRevealedCount: 48
+                    classes:
+                    - id: 3
+                      name: Mage
+                      slug: mage
+                    keywords:
+                    - id: 1
+                      name: Taunt
+                      slug: taunt
+                      text: Enemies must attack this minion.
+                    types:
+                    - id: 4
+                      name: Minion
+                      slug: minion
+                    rarities:
+                    - id: 5
+                      name: Legendary
+                      slug: legendary
+                      craftingCost:
+                      - 400
+                      - 1600
+                      dustValue:
+                      - 400
+                      - 1600
+                    minionTypes:
+                    - id: 14
+                      name: Dragon
+                      slug: dragon
+        '401':
+          description: Unauthorized. Missing or invalid access token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hearthstone/metadata/{type}:
+    get:
+      operationId: getMetadataType
+      summary: Battle.net Get Hearthstone Metadata Type
+      description: Returns a specific type of metadata.
+      tags:
+      - Metadata
+      parameters:
+      - name: type
+        in: path
+        required: true
+        description: The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles).
+        schema:
+          type: string
+          enum:
+          - sets
+          - setGroups
+          - arenaIds
+          - arenaSeasons
+          - keywords
+          - races
+          - classes
+          - cardTypes
+          - rarities
+          - minionTypes
+          - spellSchools
+          - mercenaryRoles
+        example: sets
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: A list of metadata items of the requested type.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MetadataItem'
+              examples:
+                GetMetadataType200Example:
+                  summary: Default getMetadataType 200 response
+                  x-microcks-default: true
+                  value:
+                  - id: 1
+                    name: Basic
+                    slug: basic
+                    type: base
+        '404':
+          description: Metadata type not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Metadata:
+      type: object
+      title: Metadata
+      description: Hearthstone metadata including sets, classes, keywords, types, and rarities.
+      properties:
+        sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of card sets.
+        setGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of set groups.
+        classes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of classes.
+        keywords:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of keywords.
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of card types.
+        rarities:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of rarities.
+        minionTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataItem'
+          description: List of minion types.
+    MetadataItem:
+      type: object
+      title: Metadata Item
+      description: A generic metadata item.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the metadata item.
+          example: 1
+        name:
+          type: string
+          description: The name of the metadata item.
+          example: Basic
+        slug:
+          type: string
+          description: The slug identifier.
+          example: basic
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Battle.net OAuth 2.0 authentication. Use client credentials flow for game data APIs.
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes: {}

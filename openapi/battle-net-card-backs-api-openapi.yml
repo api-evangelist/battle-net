@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: Battle.net Hearthstone Game Data Card Backs API
+  description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
+  version: '1.0'
+  contact:
+    name: Blizzard Developer Relations
+    url: https://community.developer.battle.net/
+  termsOfService: https://www.blizzard.com/en-us/legal/a2989b50-54f6-43f3-b55c-fa78e0ca3b38/blizzard-developer-api-terms-of-use
+  x-generated-from: documentation
+servers:
+- url: https://us.api.blizzard.com
+  description: US Region
+- url: https://eu.api.blizzard.com
+  description: EU Region
+- url: https://apac.api.blizzard.com
+  description: APAC Region
+security:
+- oauth2: []
+tags:
+- name: Card Backs
+  description: Hearthstone card back collections
+paths:
+  /hearthstone/cardbacks:
+    get:
+      operationId: searchCardBacks
+      summary: Battle.net Search Hearthstone Card Backs
+      description: Returns an up-to-date list of all card backs matching the search criteria.
+      tags:
+      - Card Backs
+      parameters:
+      - name: cardBackCategory
+        in: query
+        description: A category of card back. The category must match a valid category slug.
+        schema:
+          type: string
+        example: fireside
+      - name: textFilter
+        in: query
+        description: A text string used to filter card backs.
+        schema:
+          type: string
+        example: legend
+      - name: sort
+        in: query
+        description: The field used to sort the results.
+        schema:
+          type: string
+          enum:
+          - name
+          - dateAdded
+        example: dateAdded
+      - name: order
+        in: query
+        description: The order in which to sort the results.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        example: desc
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: A list of Hearthstone card backs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardBackSearchResponse'
+              examples:
+                SearchCardBacks200Example:
+                  summary: Default searchCardBacks 200 response
+                  x-microcks-default: true
+                  value:
+                    cardBacks:
+                    - id: 1
+                      sortCategory: 2
+                      text: The standard card back for Hearthstone.
+                      name: Classic
+                      image: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png
+                      slug: classic
+                    cardCount: 1
+                    pageCount: 1
+                    page: 1
+        '401':
+          description: Unauthorized. Missing or invalid access token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hearthstone/cardbacks/{idOrSlug}:
+    get:
+      operationId: getCardBack
+      summary: Battle.net Get Hearthstone Card Back
+      description: Returns a specific card back by using a valid ID or slug.
+      tags:
+      - Card Backs
+      parameters:
+      - name: idOrSlug
+        in: path
+        required: true
+        description: The ID or slug of the card back.
+        schema:
+          type: string
+        example: classic
+      - name: locale
+        in: query
+        description: The locale to reflect in localized data.
+        schema:
+          type: string
+        example: en_US
+      responses:
+        '200':
+          description: A Hearthstone card back object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardBack'
+              examples:
+                GetCardBack200Example:
+                  summary: Default getCardBack 200 response
+                  x-microcks-default: true
+                  value:
+                    id: 1
+                    sortCategory: 2
+                    text: The standard card back for Hearthstone.
+                    name: Classic
+                    image: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png
+                    slug: classic
+        '404':
+          description: Card back not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CardBackSearchResponse:
+      type: object
+      title: Card Back Search Response
+      description: A paginated list of Hearthstone card backs.
+      properties:
+        cardBacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/CardBack'
+          description: List of matching card backs.
+        cardCount:
+          type: integer
+          description: Total number of matching card backs.
+          example: 150
+        pageCount:
+          type: integer
+          description: Total number of pages.
+          example: 8
+        page:
+          type: integer
+          description: Current page number.
+          example: 1
+    CardBack:
+      type: object
+      title: Card Back
+      description: A Hearthstone card back object.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the card back.
+          example: 1
+        sortCategory:
+          type: integer
+          description: The sort category.
+          example: 2
+        text:
+          type: string
+          description: Description of the card back.
+          example: The standard card back for Hearthstone.
+        name:
+          type: string
+          description: The name of the card back.
+          example: Classic
+        image:
+          type: string
+          format: uri
+          description: URL of the card back image.
+          example: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png
+        slug:
+          type: string
+          description: A human-readable identifier for the card back.
+          example: classic
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Battle.net OAuth 2.0 authentication. Use client credentials flow for game data APIs.
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.battle.net/token
+          scopes: {}
