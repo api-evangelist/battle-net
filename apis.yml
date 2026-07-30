@@ -7,7 +7,20 @@ description: Battle.net is Blizzard Entertainment's online gaming platform and d
   auction house data.
 type: Index
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/battle-net.png
 tags:
 - Games
 - Gaming
@@ -24,8 +37,10 @@ specificationVersion: '0.19'
 apis:
 - aid: battle-net:world-of-warcraft-game-data
   name: World of Warcraft Game Data API
-  description: Provides access to World of Warcraft game data including achievements, auction house listings, character classes,
-    races, realms, guild data, items, spells, zones, and PvP leaderboards. Requires OAuth 2.0 client credentials flow.
+  description: >-
+    Provides access to World of Warcraft game data including achievements, auction house listings, character
+    classes, races, realms, guild data, items, spells, zones, and PvP leaderboards. Requires OAuth 2.0
+    client credentials flow.
   humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/game-data-apis
   tags:
   - Games
@@ -38,8 +53,10 @@ apis:
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:world-of-warcraft-profile
   name: World of Warcraft Profile API
-  description: Provides access to player profile data for World of Warcraft including character summaries, equipment, achievements,
-    collections, mythic keystone profile, and PvP profile data. Requires OAuth 2.0 authorization code flow with user consent.
+  description: >-
+    Provides access to player profile data for World of Warcraft including character summaries, equipment,
+    achievements, collections, mythic keystone profile, and PvP profile data. Requires OAuth 2.0 authorization
+    code flow with user consent.
   humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/profile-apis
   tags:
   - Games
@@ -53,22 +70,26 @@ apis:
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:world-of-warcraft-classic
   name: World of Warcraft Classic Game Data API
-  description: Provides game data for World of Warcraft Classic (Era and Seasonal), including classic realm lists, auction
-    house data, character classes, races, and items specific to the classic game versions.
-  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft-classic/game-data-apis
+  description: >-
+    Provides game data for World of Warcraft Classic (Era and Seasonal), including classic realm lists,
+    auction house data, character classes, races, and items specific to the classic game versions.
+  humanURL: >-
+    https://community.developer.battle.net/documentation/world-of-warcraft-classic/game-data-apis
   tags:
   - Games
   - Gaming
   - World Of Warcraft Classic
   properties:
   - type: Documentation
-    url: https://community.developer.battle.net/documentation/world-of-warcraft-classic/game-data-apis
+    url: >-
+      https://community.developer.battle.net/documentation/world-of-warcraft-classic/game-data-apis
   - type: Authentication
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:diablo-3-game-data
   name: Diablo III Game Data API
-  description: Provides access to Diablo III game data including season index and season data, era index and era leaderboards.
-    Requires OAuth 2.0 client credentials flow.
+  description: >-
+    Provides access to Diablo III game data including season index and season data, era index and era
+    leaderboards. Requires OAuth 2.0 client credentials flow.
   humanURL: https://community.developer.battle.net/documentation/diablo-3/game-data-apis
   tags:
   - Games
@@ -81,8 +102,9 @@ apis:
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:diablo-3-community
   name: Diablo III Community API
-  description: Provides access to Diablo III community data including character profiles, hero data, item data, follower data,
-    artisan data, and act information. Requires OAuth 2.0 for profile endpoints.
+  description: >-
+    Provides access to Diablo III community data including character profiles, hero data, item data, follower
+    data, artisan data, and act information. Requires OAuth 2.0 for profile endpoints.
   humanURL: https://community.developer.battle.net/documentation/diablo-3/community-apis
   tags:
   - Games
@@ -93,46 +115,11 @@ apis:
     url: https://community.developer.battle.net/documentation/diablo-3/community-apis
   - type: Authentication
     url: https://community.developer.battle.net/documentation/guides/using-oauth
-- aid: battle-net:hearthstone-game-data
-  name: Hearthstone Game Data API
-  description: Provides access to Hearthstone card data including card search, card back collections, deck building, and metadata
-    such as card sets, classes, card types, rarities, and keywords. Requires OAuth 2.0 client credentials flow.
-  humanURL: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
-  tags:
-  - Games
-  - Gaming
-  - Hearthstone
-  properties:
-  - type: Documentation
-    url: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
-  - type: Authentication
-    url: https://community.developer.battle.net/documentation/guides/using-oauth
-  - type: OpenAPI
-    url: openapi/battle-net-hearthstone-game-data.yaml
-  - type: JSONSchema
-    url: json-schema/hearthstone-game-data-card-schema.json
-    title: Card Schema
-  - type: JSONSchema
-    url: json-schema/hearthstone-game-data-card-back-schema.json
-    title: Card Back Schema
-  - type: JSONSchema
-    url: json-schema/hearthstone-game-data-deck-schema.json
-    title: Deck Schema
-  - type: JSONSchema
-    url: json-schema/hearthstone-game-data-metadata-schema.json
-    title: Metadata Schema
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-cards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-decks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-metadata.yaml
 - aid: battle-net:starcraft-2-game-data
   name: StarCraft II Game Data API
-  description: Provides access to StarCraft II game data including league data for multiple game modes. Requires OAuth 2.0
-    client credentials flow.
+  description: >-
+    Provides access to StarCraft II game data including league data for multiple game modes. Requires
+    OAuth 2.0 client credentials flow.
   humanURL: https://community.developer.battle.net/documentation/starcraft-2/game-data-apis
   tags:
   - Games
@@ -145,8 +132,9 @@ apis:
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:starcraft-2-community
   name: StarCraft II Community API
-  description: Provides access to StarCraft II community data including player profile, ladder summaries, grandmaster leaderboards,
-    and static game data for profile, legacy, and ladder resources.
+  description: >-
+    Provides access to StarCraft II community data including player profile, ladder summaries, grandmaster
+    leaderboards, and static game data for profile, legacy, and ladder resources.
   humanURL: https://community.developer.battle.net/documentation/starcraft-2/community-apis
   tags:
   - Games
@@ -159,9 +147,10 @@ apis:
     url: https://community.developer.battle.net/documentation/guides/using-oauth
 - aid: battle-net:battle-net-oauth
   name: Battle.net OAuth API
-  description: Provides OAuth 2.0 authorization services for Battle.net including client credentials flow for game data access
-    and authorization code flow for player profile data. Token endpoint, authorization endpoint, and token validation endpoint
-    are available per region (US, EU, APAC).
+  description: >-
+    Provides OAuth 2.0 authorization services for Battle.net including client credentials flow for game
+    data access and authorization code flow for player profile data. Token endpoint, authorization endpoint,
+    and token validation endpoint are available per region (US, EU, APAC).
   humanURL: https://community.developer.battle.net/documentation/battle-net/oauth-apis
   tags:
   - Authentication
@@ -172,7 +161,125 @@ apis:
     url: https://community.developer.battle.net/documentation/battle-net/oauth-apis
   - type: Authentication
     url: https://community.developer.battle.net/documentation/guides/using-oauth
+- aid: battle-net:battle-net-card-backs-api
+  name: Battle.net Card Backs API
+  description: Hearthstone card back collections
+  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/game-data-apis
+  tags:
+  - Card Backs
+  properties:
+  - type: OpenAPI
+    url: openapi/battle-net-card-backs-api-openapi.yml
+  - type: Documentation
+    url: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
+  - type: Authentication
+    url: https://community.developer.battle.net/documentation/guides/using-oauth
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-back-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-deck-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-metadata-schema.json
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-card-backs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-cards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-decks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-metadata.yaml
+- aid: battle-net:battle-net-cards-api
+  name: Battle.net Cards API
+  description: Hearthstone card search and lookup
+  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/game-data-apis
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/battle-net-cards-api-openapi.yml
+  - type: Documentation
+    url: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
+  - type: Authentication
+    url: https://community.developer.battle.net/documentation/guides/using-oauth
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-back-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-deck-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-metadata-schema.json
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-card-backs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-cards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-decks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-metadata.yaml
+- aid: battle-net:battle-net-decks-api
+  name: Battle.net Decks API
+  description: Hearthstone deck lookup
+  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/game-data-apis
+  tags:
+  - Decks
+  properties:
+  - type: OpenAPI
+    url: openapi/battle-net-decks-api-openapi.yml
+  - type: Documentation
+    url: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
+  - type: Authentication
+    url: https://community.developer.battle.net/documentation/guides/using-oauth
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-back-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-deck-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-metadata-schema.json
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-card-backs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-cards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-decks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-metadata.yaml
+- aid: battle-net:battle-net-metadata-api
+  name: Battle.net Metadata API
+  description: Hearthstone metadata including sets, classes, types, and keywords
+  humanURL: https://community.developer.battle.net/documentation/world-of-warcraft/game-data-apis
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/battle-net-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://community.developer.battle.net/documentation/hearthstone/game-data-apis
+  - type: Authentication
+    url: https://community.developer.battle.net/documentation/guides/using-oauth
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-card-back-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-deck-schema.json
+  - type: JSONSchema
+    url: json-schema/hearthstone-game-data-metadata-schema.json
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-card-backs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-cards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-decks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/hearthstone-game-data-metadata.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/battlenet/overview
 - type: AgenticAccess
   url: agentic-access/battle-net-agentic-access.yml
 - type: DomainSecurity
