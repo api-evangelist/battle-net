@@ -1,0 +1,20 @@
+{
+  "provider": "battle-net",
+  "sources": [
+    "battle-net-card-backs-api-openapi.yml",
+    "battle-net-cards-api-openapi.yml",
+    "battle-net-decks-api-openapi.yml",
+    "battle-net-metadata-api-openapi.yml"
+  ],
+  "outputs": [
+    "battle-net-card-backs-api-openapi.yml",
+    "battle-net-cards-api-openapi.yml",
+    "battle-net-decks-api-openapi.yml",
+    "battle-net-metadata-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

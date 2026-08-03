@@ -1,0 +1,421 @@
+{
+  "info": {
+    "_postman_id": "889ccf39-6777-4b3c-b7fa-f6ff63bf5149",
+    "name": "Battle.net Hearthstone Game Data Card Backs API",
+    "description": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:12:02.000Z",
+    "updatedAt": "2026-07-28T01:12:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-889ccf39-6777-4b3c-b7fa-f6ff63bf5149"
+  },
+  "item": [
+    {
+      "name": "hearthstone",
+      "item": [
+        {
+          "name": "cardbacks",
+          "item": [
+            {
+              "name": "{idOrSlug}",
+              "item": [
+                {
+                  "name": "Battle.net Get Hearthstone Card Back",
+                  "id": "cbcce1b8-443f-4d6f-be5a-a2dc20021636",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/cardbacks/:idOrSlug?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "cardbacks",
+                        ":idOrSlug"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5b6fc9d0-18e5-4fb9-b000-77f67ab0e6e2",
+                          "key": "idOrSlug",
+                          "value": "<string>",
+                          "description": "(Required) The ID or slug of the card back."
+                        }
+                      ]
+                    },
+                    "description": "Returns a specific card back by using a valid ID or slug."
+                  },
+                  "response": [
+                    {
+                      "id": "a92788b0-6a52-4c74-affb-0019b8b0d779",
+                      "name": "A Hearthstone card back object.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/hearthstone/cardbacks/:idOrSlug?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hearthstone",
+                            "cardbacks",
+                            ":idOrSlug"
+                          ],
+                          "query": [
+                            {
+                              "description": "The locale to reflect in localized data.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "idOrSlug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"sortCategory\": \"<integer>\",\n  \"text\": \"<string>\",\n  \"name\": \"<string>\",\n  \"image\": \"<uri>\",\n  \"slug\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:12:03.000Z",
+                      "updatedAt": "2026-07-28T01:12:03.000Z",
+                      "uid": "35240-a92788b0-6a52-4c74-affb-0019b8b0d779"
+                    },
+                    {
+                      "id": "1bc046ce-2241-466f-a104-23db4e03d8e5",
+                      "name": "Card back not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/hearthstone/cardbacks/:idOrSlug?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hearthstone",
+                            "cardbacks",
+                            ":idOrSlug"
+                          ],
+                          "query": [
+                            {
+                              "description": "The locale to reflect in localized data.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "idOrSlug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:12:03.000Z",
+                      "updatedAt": "2026-07-28T01:12:03.000Z",
+                      "uid": "35240-1bc046ce-2241-466f-a104-23db4e03d8e5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:12:03.000Z",
+                  "updatedAt": "2026-07-28T01:12:03.000Z",
+                  "uid": "35240-cbcce1b8-443f-4d6f-be5a-a2dc20021636"
+                }
+              ],
+              "id": "83b75d21-3925-4365-af0e-84461852d4f7",
+              "createdAt": "2026-07-28T01:12:03.000Z",
+              "updatedAt": "2026-07-28T01:12:03.000Z",
+              "uid": "35240-83b75d21-3925-4365-af0e-84461852d4f7"
+            },
+            {
+              "name": "Battle.net Search Hearthstone Card Backs",
+              "id": "0ee683ba-0bd5-4fcb-9385-2d44f9b2a111",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hearthstone/cardbacks?cardBackCategory=<string>&textFilter=<string>&sort=name&order=asc&locale=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hearthstone",
+                    "cardbacks"
+                  ],
+                  "query": [
+                    {
+                      "description": "A category of card back. The category must match a valid category slug.",
+                      "key": "cardBackCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A text string used to filter card backs.",
+                      "key": "textFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The field used to sort the results.",
+                      "key": "sort",
+                      "value": "name"
+                    },
+                    {
+                      "description": "The order in which to sort the results.",
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "description": "The locale to reflect in localized data.",
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns an up-to-date list of all card backs matching the search criteria."
+              },
+              "response": [
+                {
+                  "id": "0fea433f-a6e5-4aa1-90cb-ac0c5c601b2d",
+                  "name": "A list of Hearthstone card backs.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/cardbacks?cardBackCategory=<string>&textFilter=<string>&sort=name&order=asc&locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "cardbacks"
+                      ],
+                      "query": [
+                        {
+                          "description": "A category of card back. The category must match a valid category slug.",
+                          "key": "cardBackCategory",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A text string used to filter card backs.",
+                          "key": "textFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The field used to sort the results.",
+                          "key": "sort",
+                          "value": "name"
+                        },
+                        {
+                          "description": "The order in which to sort the results.",
+                          "key": "order",
+                          "value": "asc"
+                        },
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"cardBacks\": [\n    {\n      \"id\": \"<integer>\",\n      \"sortCategory\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<uri>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"sortCategory\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"name\": \"<string>\",\n      \"image\": \"<uri>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"cardCount\": \"<integer>\",\n  \"pageCount\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:12:03.000Z",
+                  "updatedAt": "2026-07-28T01:12:03.000Z",
+                  "uid": "35240-0fea433f-a6e5-4aa1-90cb-ac0c5c601b2d"
+                },
+                {
+                  "id": "7cb6f71e-7585-4816-a743-6851b76490ec",
+                  "name": "Unauthorized. Missing or invalid access token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/cardbacks?cardBackCategory=<string>&textFilter=<string>&sort=name&order=asc&locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "cardbacks"
+                      ],
+                      "query": [
+                        {
+                          "description": "A category of card back. The category must match a valid category slug.",
+                          "key": "cardBackCategory",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A text string used to filter card backs.",
+                          "key": "textFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The field used to sort the results.",
+                          "key": "sort",
+                          "value": "name"
+                        },
+                        {
+                          "description": "The order in which to sort the results.",
+                          "key": "order",
+                          "value": "asc"
+                        },
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:12:03.000Z",
+                  "updatedAt": "2026-07-28T01:12:03.000Z",
+                  "uid": "35240-7cb6f71e-7585-4816-a743-6851b76490ec"
+                }
+              ],
+              "createdAt": "2026-07-28T01:12:03.000Z",
+              "updatedAt": "2026-07-28T01:12:03.000Z",
+              "uid": "35240-0ee683ba-0bd5-4fcb-9385-2d44f9b2a111"
+            }
+          ],
+          "id": "193b4fbd-4876-4105-a777-696fa2f67d57",
+          "createdAt": "2026-07-28T01:12:03.000Z",
+          "updatedAt": "2026-07-28T01:12:03.000Z",
+          "uid": "35240-193b4fbd-4876-4105-a777-696fa2f67d57"
+        }
+      ],
+      "id": "4b74c5a3-d7f2-4467-b6cf-20481a8ea9ef",
+      "createdAt": "2026-07-28T01:12:03.000Z",
+      "updatedAt": "2026-07-28T01:12:03.000Z",
+      "uid": "35240-4b74c5a3-d7f2-4467-b6cf-20481a8ea9ef"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://us.api.blizzard.com"
+    }
+  ]
+}

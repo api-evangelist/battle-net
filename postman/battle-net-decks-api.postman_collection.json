@@ -1,0 +1,207 @@
+{
+  "info": {
+    "_postman_id": "a0fbc4fc-210e-4fe5-8961-3e066db37f59",
+    "name": "Battle.net Hearthstone Game Data Card Backs Decks API",
+    "description": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:12:04.000Z",
+    "updatedAt": "2026-07-28T01:12:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a0fbc4fc-210e-4fe5-8961-3e066db37f59"
+  },
+  "item": [
+    {
+      "name": "hearthstone",
+      "item": [
+        {
+          "name": "deck",
+          "item": [
+            {
+              "name": "Battle.net Get Hearthstone Deck",
+              "id": "5adb330d-b1f9-4093-b1a0-cf73957648fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hearthstone/deck?code=<string>&locale=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hearthstone",
+                    "deck"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) A code that identifies a deck. You can copy a deck code by right-clicking on a deck in the Hearthstone client and selecting Copy.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The locale to reflect in localized data.",
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Finds a deck by its deck code."
+              },
+              "response": [
+                {
+                  "id": "b35f9823-7b34-46cf-ab1d-415a61c53e81",
+                  "name": "A Hearthstone deck object.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/deck?code=<string>&locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "deck"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) A code that identifies a deck. You can copy a deck code by right-clicking on a deck in the Hearthstone client and selecting Copy.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"deckCode\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"format\": \"<string>\",\n  \"class\": {\n    \"slug\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"cards\": [\n    {\n      \"id\": \"<integer>\",\n      \"count\": \"<integer>\",\n      \"slug\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"count\": \"<integer>\",\n      \"slug\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"cardCount\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:12:05.000Z",
+                  "updatedAt": "2026-07-28T01:12:05.000Z",
+                  "uid": "35240-b35f9823-7b34-46cf-ab1d-415a61c53e81"
+                },
+                {
+                  "id": "2dff6790-f3d5-431e-8c86-9ed0d3dabde4",
+                  "name": "Deck not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/deck?code=<string>&locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "deck"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) A code that identifies a deck. You can copy a deck code by right-clicking on a deck in the Hearthstone client and selecting Copy.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:12:05.000Z",
+                  "updatedAt": "2026-07-28T01:12:05.000Z",
+                  "uid": "35240-2dff6790-f3d5-431e-8c86-9ed0d3dabde4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:12:05.000Z",
+              "updatedAt": "2026-07-28T01:12:05.000Z",
+              "uid": "35240-5adb330d-b1f9-4093-b1a0-cf73957648fa"
+            }
+          ],
+          "id": "d258732e-580a-45e8-b38d-1ac3bd26ddf9",
+          "createdAt": "2026-07-28T01:12:05.000Z",
+          "updatedAt": "2026-07-28T01:12:05.000Z",
+          "uid": "35240-d258732e-580a-45e8-b38d-1ac3bd26ddf9"
+        }
+      ],
+      "id": "0ea3de16-b952-4b66-823e-ea2816a3e500",
+      "createdAt": "2026-07-28T01:12:05.000Z",
+      "updatedAt": "2026-07-28T01:12:05.000Z",
+      "uid": "35240-0ea3de16-b952-4b66-823e-ea2816a3e500"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://us.api.blizzard.com"
+    }
+  ]
+}

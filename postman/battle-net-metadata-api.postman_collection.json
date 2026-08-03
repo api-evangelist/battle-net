@@ -1,0 +1,361 @@
+{
+  "info": {
+    "_postman_id": "ac130036-0c21-4b21-9118-52b1245f1f40",
+    "name": "Battle.net Hearthstone Game Data Card Backs Metadata API",
+    "description": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:12:05.000Z",
+    "updatedAt": "2026-07-28T01:12:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac130036-0c21-4b21-9118-52b1245f1f40"
+  },
+  "item": [
+    {
+      "name": "hearthstone",
+      "item": [
+        {
+          "name": "metadata",
+          "item": [
+            {
+              "name": "{type}",
+              "item": [
+                {
+                  "name": "Battle.net Get Hearthstone Metadata Type",
+                  "id": "1682c3b3-045a-463d-86d3-3779caa9f25a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/metadata/:type?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "metadata",
+                        ":type"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "486516b7-9501-482c-9311-3bad4b32b2a8",
+                          "key": "type",
+                          "value": "keywords",
+                          "description": "(Required) The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles)."
+                        }
+                      ]
+                    },
+                    "description": "Returns a specific type of metadata."
+                  },
+                  "response": [
+                    {
+                      "id": "30202535-faad-49b3-963f-995e21f6f695",
+                      "name": "A list of metadata items of the requested type.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/hearthstone/metadata/:type?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hearthstone",
+                            "metadata",
+                            ":type"
+                          ],
+                          "query": [
+                            {
+                              "description": "The locale to reflect in localized data.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "type"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:12:06.000Z",
+                      "updatedAt": "2026-07-28T01:12:06.000Z",
+                      "uid": "35240-30202535-faad-49b3-963f-995e21f6f695"
+                    },
+                    {
+                      "id": "2f4d3815-c58c-4ea6-a0cc-a6130c1ebb38",
+                      "name": "Metadata type not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/hearthstone/metadata/:type?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hearthstone",
+                            "metadata",
+                            ":type"
+                          ],
+                          "query": [
+                            {
+                              "description": "The locale to reflect in localized data.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "type"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:12:06.000Z",
+                      "updatedAt": "2026-07-28T01:12:06.000Z",
+                      "uid": "35240-2f4d3815-c58c-4ea6-a0cc-a6130c1ebb38"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:12:06.000Z",
+                  "updatedAt": "2026-07-28T01:12:06.000Z",
+                  "uid": "35240-1682c3b3-045a-463d-86d3-3779caa9f25a"
+                }
+              ],
+              "id": "5ceb734e-2e23-42e0-81d6-ae0d6dca3bf3",
+              "createdAt": "2026-07-28T01:12:06.000Z",
+              "updatedAt": "2026-07-28T01:12:06.000Z",
+              "uid": "35240-5ceb734e-2e23-42e0-81d6-ae0d6dca3bf3"
+            },
+            {
+              "name": "Battle.net Get Hearthstone Metadata",
+              "id": "8ba6b7e9-14c3-4a72-94a2-0b02dc700f68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/hearthstone/metadata?locale=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hearthstone",
+                    "metadata"
+                  ],
+                  "query": [
+                    {
+                      "description": "The locale to reflect in localized data.",
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns information about the categorization of cards. Metadata includes the list of sets, set groups, types, rarities, classes, keywords, and minion types."
+              },
+              "response": [
+                {
+                  "id": "8f5f64e6-5d45-4e43-ba7d-a3c589d90fd2",
+                  "name": "Hearthstone metadata object.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/metadata?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "metadata"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sets\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"setGroups\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"classes\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"keywords\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"types\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"rarities\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"minionTypes\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:12:06.000Z",
+                  "updatedAt": "2026-07-28T01:12:06.000Z",
+                  "uid": "35240-8f5f64e6-5d45-4e43-ba7d-a3c589d90fd2"
+                },
+                {
+                  "id": "24bc6a99-3804-47de-b5bd-6b1c39a39c64",
+                  "name": "Unauthorized. Missing or invalid access token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/hearthstone/metadata?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hearthstone",
+                        "metadata"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale to reflect in localized data.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:12:06.000Z",
+                  "updatedAt": "2026-07-28T01:12:06.000Z",
+                  "uid": "35240-24bc6a99-3804-47de-b5bd-6b1c39a39c64"
+                }
+              ],
+              "createdAt": "2026-07-28T01:12:06.000Z",
+              "updatedAt": "2026-07-28T01:12:06.000Z",
+              "uid": "35240-8ba6b7e9-14c3-4a72-94a2-0b02dc700f68"
+            }
+          ],
+          "id": "81b5391b-4735-4ba1-823f-c1238c1f3130",
+          "createdAt": "2026-07-28T01:12:06.000Z",
+          "updatedAt": "2026-07-28T01:12:06.000Z",
+          "uid": "35240-81b5391b-4735-4ba1-823f-c1238c1f3130"
+        }
+      ],
+      "id": "b58f6fb0-b637-4649-a030-a0c2d620e97c",
+      "createdAt": "2026-07-28T01:12:06.000Z",
+      "updatedAt": "2026-07-28T01:12:06.000Z",
+      "uid": "35240-b58f6fb0-b637-4649-a030-a0c2d620e97c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://us.api.blizzard.com"
+    }
+  ]
+}
