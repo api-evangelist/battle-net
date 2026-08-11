@@ -182,14 +182,6 @@ apis:
     url: json-schema/hearthstone-game-data-deck-schema.json
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-cards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-decks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-metadata.yaml
 - aid: battle-net:battle-net-cards-api
   name: Battle.net Cards API
   description: Hearthstone card search and lookup
@@ -211,14 +203,6 @@ apis:
     url: json-schema/hearthstone-game-data-deck-schema.json
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-cards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-decks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-metadata.yaml
 - aid: battle-net:battle-net-decks-api
   name: Battle.net Decks API
   description: Hearthstone deck lookup
@@ -240,14 +224,6 @@ apis:
     url: json-schema/hearthstone-game-data-deck-schema.json
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-cards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-decks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-metadata.yaml
 - aid: battle-net:battle-net-metadata-api
   name: Battle.net Metadata API
   description: Hearthstone metadata including sets, classes, types, and keywords
@@ -269,14 +245,6 @@ apis:
     url: json-schema/hearthstone-game-data-deck-schema.json
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-card-backs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-cards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-decks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/hearthstone-game-data-metadata.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/battlenet/overview
