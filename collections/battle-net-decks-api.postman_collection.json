@@ -1,0 +1,200 @@
+{
+  "item": [
+    {
+      "id": "210058cb-fa3a-4e12-8ba9-ccaa2fb871ad",
+      "name": "Decks",
+      "description": {
+        "content": "Hearthstone deck lookup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8510e1cc-5db0-4b3f-ac9c-3dcae9aa457a",
+          "name": "Battle.net Get Hearthstone Deck",
+          "request": {
+            "name": "Battle.net Get Hearthstone Deck",
+            "description": {
+              "content": "Finds a deck by its deck code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "deck"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) A code that identifies a deck. You can copy a deck code by right-clicking on a deck in the Hearthstone client and selecting Copy."
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to reflect in localized data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "840f7be3-503d-43c2-bfd7-dfba597a33bd",
+              "name": "A Hearthstone deck object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "deck"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "AAECAf0EAA8A"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deckCode\": \"AAECAf0EAA8A\",\n  \"version\": 1,\n  \"format\": \"standard\",\n  \"class\": {\n    \"slug\": \"mage\",\n    \"id\": 3,\n    \"name\": \"Mage\"\n  },\n  \"cards\": [\n    {\n      \"id\": 52119,\n      \"count\": 1,\n      \"slug\": \"52119-ragnaros-the-firelord\",\n      \"name\": \"Ragnaros the Firelord\"\n    }\n  ],\n  \"cardCount\": 30\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d72dbda-d997-4c62-b677-7726ba879a47",
+              "name": "Deck not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "deck"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "AAECAf0EAA8A"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://us.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ac089aba-5c16-4f64-88d6-e19b74265864",
+    "name": "Battle.net Hearthstone Game Data Card Backs Decks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

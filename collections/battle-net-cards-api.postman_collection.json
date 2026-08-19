@@ -1,0 +1,705 @@
+{
+  "item": [
+    {
+      "id": "1b2f54f4-e041-4d82-98f8-45622bafe5ed",
+      "name": "Cards",
+      "description": {
+        "content": "Hearthstone card search and lookup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5c41914-23cc-4334-af48-1b7ec06f08a6",
+          "name": "Battle.net Search Hearthstone Cards",
+          "request": {
+            "name": "Battle.net Search Hearthstone Cards",
+            "description": {
+              "content": "Returns an up-to-date list of all cards matching the search criteria. Input 1 or more search parameters to retrieve a list of cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>",
+                  "description": "The slug of the set the card belongs to. If you do not supply a value, cards from all sets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "class",
+                  "value": "<string>",
+                  "description": "The slug of the card's class."
+                },
+                {
+                  "disabled": false,
+                  "key": "manaCost",
+                  "value": "<integer>",
+                  "description": "The mana cost required to play the card. You can include multiple values in a comma-separated list of numeric values."
+                },
+                {
+                  "disabled": false,
+                  "key": "attack",
+                  "value": "<integer>",
+                  "description": "The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values."
+                },
+                {
+                  "disabled": false,
+                  "key": "health",
+                  "value": "<integer>",
+                  "description": "The health of the minion. You can include multiple values in a comma-separated list of numeric values."
+                },
+                {
+                  "disabled": false,
+                  "key": "collectible",
+                  "value": "<string>",
+                  "description": "Whether a card is collectible. A value of 1 indicates that collectible cards are returned; 0 indicates uncollectible cards. To return all cards, use a value of 0,1."
+                },
+                {
+                  "disabled": false,
+                  "key": "rarity",
+                  "value": "<string>",
+                  "description": "The rarity of a card. This value must match the rarity slugs found in metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of card (minion, spell, weapon, hero). This value must match the type slugs found in metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "minionType",
+                  "value": "<string>",
+                  "description": "The type of minion card (murloc, dragon, beast, etc). This value must match the minion type slugs found in metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "A required keyword on the card (battlecry, deathrattle, taunt, etc). This value must match the keyword slugs found in metadata."
+                },
+                {
+                  "disabled": false,
+                  "key": "textFilter",
+                  "value": "<string>",
+                  "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "gameMode",
+                  "value": "<string>",
+                  "description": "A recognized game mode (constructed or battlegrounds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "A page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The number of results per page. Maximum value is 500; if pageSize is greater than 500 or not specified, it will be set to the maximum allowed value."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The field used to sort the results. Valid values include manaCost, attack, health, and name."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "The order in which to sort the results. Valid values are asc or desc."
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to reflect in localized data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "774e4380-bd4f-4cc9-80ee-6b4395327f59",
+              "name": "A list of Hearthstone cards matching the search criteria.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "set",
+                      "value": "standard"
+                    },
+                    {
+                      "key": "class",
+                      "value": "mage"
+                    },
+                    {
+                      "key": "manaCost",
+                      "value": "7"
+                    },
+                    {
+                      "key": "attack",
+                      "value": "5"
+                    },
+                    {
+                      "key": "health",
+                      "value": "5"
+                    },
+                    {
+                      "key": "collectible",
+                      "value": "1"
+                    },
+                    {
+                      "key": "rarity",
+                      "value": "legendary"
+                    },
+                    {
+                      "key": "type",
+                      "value": "minion"
+                    },
+                    {
+                      "key": "minionType",
+                      "value": "dragon"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "battlecry"
+                    },
+                    {
+                      "key": "textFilter",
+                      "value": "Fireball"
+                    },
+                    {
+                      "key": "gameMode",
+                      "value": "constructed"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "manaCost"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cards\": [\n    {\n      \"id\": 52119,\n      \"collectible\": 1,\n      \"slug\": \"52119-ragnaros-the-firelord\",\n      \"classId\": 12,\n      \"multiClassIds\": [],\n      \"cardTypeId\": 4,\n      \"cardSetId\": 3,\n      \"rarityId\": 5,\n      \"artistName\": \"Alex Horley Orlandelli\",\n      \"health\": 8,\n      \"attack\": 8,\n      \"manaCost\": 8,\n      \"name\": \"Ragnaros the Firelord\",\n      \"text\": \"Can't attack. At the end of your turn, deal 8 damage to a random enemy.\",\n      \"image\": \"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf5f0b3ef6d61b6bec59a7a7a1d95b8f0d9d74d2.png\",\n      \"flavorText\": \"He was summoned by the Dark Iron dwarves, but he's equal opportunity. He'll destroy everyone.\",\n      \"cropImage\": \"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cropped/52119.jpg\",\n      \"childIds\": []\n    }\n  ],\n  \"cardCount\": 1,\n  \"pageCount\": 1,\n  \"page\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbb163c3-9e30-473b-8a08-2dc94fc86d35",
+              "name": "Bad request due to invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "set",
+                      "value": "standard"
+                    },
+                    {
+                      "key": "class",
+                      "value": "mage"
+                    },
+                    {
+                      "key": "manaCost",
+                      "value": "7"
+                    },
+                    {
+                      "key": "attack",
+                      "value": "5"
+                    },
+                    {
+                      "key": "health",
+                      "value": "5"
+                    },
+                    {
+                      "key": "collectible",
+                      "value": "1"
+                    },
+                    {
+                      "key": "rarity",
+                      "value": "legendary"
+                    },
+                    {
+                      "key": "type",
+                      "value": "minion"
+                    },
+                    {
+                      "key": "minionType",
+                      "value": "dragon"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "battlecry"
+                    },
+                    {
+                      "key": "textFilter",
+                      "value": "Fireball"
+                    },
+                    {
+                      "key": "gameMode",
+                      "value": "constructed"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "manaCost"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8244cac-18cb-4944-bf0d-0889f8c328f0",
+              "name": "Unauthorized. Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "set",
+                      "value": "standard"
+                    },
+                    {
+                      "key": "class",
+                      "value": "mage"
+                    },
+                    {
+                      "key": "manaCost",
+                      "value": "7"
+                    },
+                    {
+                      "key": "attack",
+                      "value": "5"
+                    },
+                    {
+                      "key": "health",
+                      "value": "5"
+                    },
+                    {
+                      "key": "collectible",
+                      "value": "1"
+                    },
+                    {
+                      "key": "rarity",
+                      "value": "legendary"
+                    },
+                    {
+                      "key": "type",
+                      "value": "minion"
+                    },
+                    {
+                      "key": "minionType",
+                      "value": "dragon"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "battlecry"
+                    },
+                    {
+                      "key": "textFilter",
+                      "value": "Fireball"
+                    },
+                    {
+                      "key": "gameMode",
+                      "value": "constructed"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "manaCost"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdc89256-59ef-404f-a2b0-ccda89b5ba31",
+          "name": "Battle.net Get Hearthstone Card",
+          "request": {
+            "name": "Battle.net Get Hearthstone Card",
+            "description": {
+              "content": "Returns the card with an ID or slug that matches the one you specify.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "cards",
+                ":idOrSlug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gameMode",
+                  "value": "<string>",
+                  "description": "A recognized game mode (constructed or battlegrounds)."
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to reflect in localized data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idOrSlug",
+                  "description": "(Required) The ID or slug of the card to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d74dc9d8-489b-4035-bc1b-a2350962d661",
+              "name": "A Hearthstone card object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards",
+                    ":idOrSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gameMode",
+                      "value": "constructed"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idOrSlug",
+                      "description": "(Required) The ID or slug of the card to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 52119,\n  \"collectible\": 1,\n  \"slug\": \"52119-ragnaros-the-firelord\",\n  \"classId\": 12,\n  \"cardTypeId\": 4,\n  \"cardSetId\": 3,\n  \"rarityId\": 5,\n  \"health\": 8,\n  \"attack\": 8,\n  \"manaCost\": 8,\n  \"name\": \"Ragnaros the Firelord\",\n  \"text\": \"Can't attack. At the end of your turn, deal 8 damage to a random enemy.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac5b780f-4da5-4ce5-a2c4-a3fa9c9d93b5",
+              "name": "Card not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "cards",
+                    ":idOrSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gameMode",
+                      "value": "constructed"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idOrSlug",
+                      "description": "(Required) The ID or slug of the card to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://us.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "517b7edc-a695-4cef-b645-575263a4c6ca",
+    "name": "Battle.net Hearthstone Game Data Card Backs Cards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

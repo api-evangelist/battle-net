@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Battle.net Hearthstone Game Data Card Backs Cards API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Battle.net Search Hearthstone Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/cards",
+            "params": [
+              {
+                "name": "set",
+                "value": "standard",
+                "type": "query",
+                "description": "The slug of the set the card belongs to. If you do not supply a value, cards from all sets will be returned."
+              },
+              {
+                "name": "class",
+                "value": "mage",
+                "type": "query",
+                "description": "The slug of the card's class."
+              },
+              {
+                "name": "manaCost",
+                "value": "7",
+                "type": "query",
+                "description": "The mana cost required to play the card. You can include multiple values in a comma-separated list of numeric values."
+              },
+              {
+                "name": "attack",
+                "value": "5",
+                "type": "query",
+                "description": "The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values."
+              },
+              {
+                "name": "health",
+                "value": "5",
+                "type": "query",
+                "description": "The health of the minion. You can include multiple values in a comma-separated list of numeric values."
+              },
+              {
+                "name": "collectible",
+                "value": "1",
+                "type": "query",
+                "description": "Whether a card is collectible. A value of 1 indicates that collectible cards are returned; 0 indicates uncollectible cards. To return all cards, use a value of 0,1."
+              },
+              {
+                "name": "rarity",
+                "value": "legendary",
+                "type": "query",
+                "description": "The rarity of a card. This value must match the rarity slugs found in metadata."
+              },
+              {
+                "name": "type",
+                "value": "minion",
+                "type": "query",
+                "description": "The type of card (minion, spell, weapon, hero). This value must match the type slugs found in metadata."
+              },
+              {
+                "name": "minionType",
+                "value": "dragon",
+                "type": "query",
+                "description": "The type of minion card (murloc, dragon, beast, etc). This value must match the minion type slugs found in metadata."
+              },
+              {
+                "name": "keyword",
+                "value": "battlecry",
+                "type": "query",
+                "description": "A required keyword on the card (battlecry, deathrattle, taunt, etc). This value must match the keyword slugs found in metadata."
+              },
+              {
+                "name": "textFilter",
+                "value": "Fireball",
+                "type": "query",
+                "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter."
+              },
+              {
+                "name": "gameMode",
+                "value": "constructed",
+                "type": "query",
+                "description": "A recognized game mode (constructed or battlegrounds)."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "A page number."
+              },
+              {
+                "name": "pageSize",
+                "value": "20",
+                "type": "query",
+                "description": "The number of results per page. Maximum value is 500; if pageSize is greater than 500 or not specified, it will be set to the maximum allowed value."
+              },
+              {
+                "name": "sort",
+                "value": "manaCost",
+                "type": "query",
+                "description": "The field used to sort the results. Valid values include manaCost, attack, health, and name."
+              },
+              {
+                "name": "order",
+                "value": "asc",
+                "type": "query",
+                "description": "The order in which to sort the results. Valid values are asc or desc."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns an up-to-date list of all cards matching the search criteria. Input 1 or more search parameters to retrieve a list of cards."
+        },
+        {
+          "info": {
+            "name": "Battle.net Get Hearthstone Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/cards/:idOrSlug",
+            "params": [
+              {
+                "name": "idOrSlug",
+                "value": "52119-ragnaros-the-firelord",
+                "type": "path",
+                "description": "The ID or slug of the card to retrieve."
+              },
+              {
+                "name": "gameMode",
+                "value": "constructed",
+                "type": "query",
+                "description": "A recognized game mode (constructed or battlegrounds)."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns the card with an ID or slug that matches the one you specify."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

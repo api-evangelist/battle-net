@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Battle.net Hearthstone Game Data Card Backs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Card Backs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Battle.net Search Hearthstone Card Backs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/cardbacks",
+            "params": [
+              {
+                "name": "cardBackCategory",
+                "value": "fireside",
+                "type": "query",
+                "description": "A category of card back. The category must match a valid category slug."
+              },
+              {
+                "name": "textFilter",
+                "value": "legend",
+                "type": "query",
+                "description": "A text string used to filter card backs."
+              },
+              {
+                "name": "sort",
+                "value": "dateAdded",
+                "type": "query",
+                "description": "The field used to sort the results."
+              },
+              {
+                "name": "order",
+                "value": "desc",
+                "type": "query",
+                "description": "The order in which to sort the results."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns an up-to-date list of all card backs matching the search criteria."
+        },
+        {
+          "info": {
+            "name": "Battle.net Get Hearthstone Card Back",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/cardbacks/:idOrSlug",
+            "params": [
+              {
+                "name": "idOrSlug",
+                "value": "classic",
+                "type": "path",
+                "description": "The ID or slug of the card back."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns a specific card back by using a valid ID or slug."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

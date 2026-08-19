@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Battle.net Hearthstone Game Data Card Backs Decks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Decks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Battle.net Get Hearthstone Deck",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/deck",
+            "params": [
+              {
+                "name": "code",
+                "value": "AAECAf0EAA8A",
+                "type": "query",
+                "description": "A code that identifies a deck. You can copy a deck code by right-clicking on a deck in the Hearthstone client and selecting Copy."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Finds a deck by its deck code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

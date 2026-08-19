@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "aec797e2-5d69-43bb-97c1-65d347d6c7fd",
+      "name": "Metadata",
+      "description": {
+        "content": "Hearthstone metadata including sets, classes, types, and keywords",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63e699d2-06dc-41dc-8877-86ced9099301",
+          "name": "Battle.net Get Hearthstone Metadata",
+          "request": {
+            "name": "Battle.net Get Hearthstone Metadata",
+            "description": {
+              "content": "Returns information about the categorization of cards. Metadata includes the list of sets, set groups, types, rarities, classes, keywords, and minion types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to reflect in localized data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7621c51c-827a-4979-be67-a46cc4384717",
+              "name": "Hearthstone metadata object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sets\": [\n    {\n      \"id\": 1,\n      \"name\": \"Basic\",\n      \"slug\": \"basic\",\n      \"type\": \"base\",\n      \"collectibleCount\": 133,\n      \"collectibleRevealedCount\": 133,\n      \"nonCollectibleCount\": 48,\n      \"nonCollectibleRevealedCount\": 48\n    }\n  ],\n  \"classes\": [\n    {\n      \"id\": 3,\n      \"name\": \"Mage\",\n      \"slug\": \"mage\"\n    }\n  ],\n  \"keywords\": [\n    {\n      \"id\": 1,\n      \"name\": \"Taunt\",\n      \"slug\": \"taunt\",\n      \"text\": \"Enemies must attack this minion.\"\n    }\n  ],\n  \"types\": [\n    {\n      \"id\": 4,\n      \"name\": \"Minion\",\n      \"slug\": \"minion\"\n    }\n  ],\n  \"rarities\": [\n    {\n      \"id\": 5,\n      \"name\": \"Legendary\",\n      \"slug\": \"legendary\",\n      \"craftingCost\": [\n        400,\n        1600\n      ],\n      \"dustValue\": [\n        400,\n        1600\n      ]\n    }\n  ],\n  \"minionTypes\": [\n    {\n      \"id\": 14,\n      \"name\": \"Dragon\",\n      \"slug\": \"dragon\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d87b9ebf-5cd0-4a77-9c27-3a3f9b5386fc",
+              "name": "Unauthorized. Missing or invalid access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1517dec5-4903-4eaa-b818-3f6c158dec6a",
+          "name": "Battle.net Get Hearthstone Metadata Type",
+          "request": {
+            "name": "Battle.net Get Hearthstone Metadata Type",
+            "description": {
+              "content": "Returns a specific type of metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hearthstone",
+                "metadata",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale to reflect in localized data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ee3f980-d724-4c3c-aa6c-cb17b0b5fbef",
+              "name": "A list of metadata items of the requested type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "metadata",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Basic\",\n    \"slug\": \"basic\",\n    \"type\": \"base\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb1458e-15a5-4066-8180-5f540e17253f",
+              "name": "Metadata type not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hearthstone",
+                    "metadata",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 404,\n  \"type\": \"BLZWEBAPI00000404\",\n  \"detail\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://us.api.blizzard.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.battle.net/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1bb0e7c7-773f-4f1b-b2a5-525f3d0ae428",
+    "name": "Battle.net Hearthstone Game Data Card Backs Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.\n\nContact Support:\n Name: Blizzard Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

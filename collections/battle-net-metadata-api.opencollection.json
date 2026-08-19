@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Battle.net Hearthstone Game Data Card Backs Metadata API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://oauth.battle.net/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Battle.net Get Hearthstone Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/metadata",
+            "params": [
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns information about the categorization of cards. Metadata includes the list of sets, set groups, types, rarities, classes, keywords, and minion types."
+        },
+        {
+          "info": {
+            "name": "Battle.net Get Hearthstone Metadata Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://us.api.blizzard.com/hearthstone/metadata/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "sets",
+                "type": "path",
+                "description": "The type of metadata to retrieve (sets, setGroups, arenaIds, arenaSeasons, keywords, races, classes, cardTypes, rarities, minionTypes, spellSchools, mercenaryRoles)."
+              },
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The locale to reflect in localized data."
+              }
+            ]
+          },
+          "docs": "Returns a specific type of metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
