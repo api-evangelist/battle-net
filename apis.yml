@@ -155,6 +155,9 @@ apis:
   tags:
   - Authentication
   - Gaming
+  tags_raw:
+  - Authentication
+  - Gaming
   - OAuth
   properties:
   - type: Documentation
