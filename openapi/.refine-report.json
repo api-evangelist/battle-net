@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "battle-net-card-backs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "battle-net-cards-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "battle-net-decks-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "battle-net-metadata-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Battle.net Hearthstone Game Data Card Backs Decks API
   description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
@@ -78,6 +78,40 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
+    DeckClass:
+      type: object
+      title: Deck Class
+      description: The class associated with a deck.
+      properties:
+        slug:
+          type: string
+          description: The class slug.
+          example: mage
+        id:
+          type: integer
+          description: The class ID.
+          example: 3
+        name:
+          type: string
+          description: The class name.
+          example: Mage
     DeckCard:
       type: object
       title: Deck Card
@@ -99,23 +133,6 @@ components:
           type: string
           description: The card name.
           example: Ragnaros the Firelord
-    DeckClass:
-      type: object
-      title: Deck Class
-      description: The class associated with a deck.
-      properties:
-        slug:
-          type: string
-          description: The class slug.
-          example: mage
-        id:
-          type: integer
-          description: The class ID.
-          example: 3
-        name:
-          type: string
-          description: The class name.
-          example: Mage
     Deck:
       type: object
       title: Deck
@@ -144,23 +161,6 @@ components:
           type: integer
           description: Total number of cards in the deck.
           example: 30
-    ErrorResponse:
-      type: object
-      title: Error Response
-      description: An error response from the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-          example: 404
-        type:
-          type: string
-          description: Error type.
-          example: BLZWEBAPI00000404
-        detail:
-          type: string
-          description: A description of the error.
-          example: Not Found
   securitySchemes:
     oauth2:
       type: oauth2

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Battle.net Hearthstone Game Data Card Backs Metadata API
   description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
@@ -155,6 +155,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    MetadataItem:
+      type: object
+      title: Metadata Item
+      description: A generic metadata item.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the metadata item.
+          example: 1
+        name:
+          type: string
+          description: The name of the metadata item.
+          example: Basic
+        slug:
+          type: string
+          description: The slug identifier.
+          example: basic
     Metadata:
       type: object
       title: Metadata
@@ -195,23 +212,6 @@ components:
           items:
             $ref: '#/components/schemas/MetadataItem'
           description: List of minion types.
-    MetadataItem:
-      type: object
-      title: Metadata Item
-      description: A generic metadata item.
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the metadata item.
-          example: 1
-        name:
-          type: string
-          description: The name of the metadata item.
-          example: Basic
-        slug:
-          type: string
-          description: The slug identifier.
-          example: basic
     ErrorResponse:
       type: object
       title: Error Response
