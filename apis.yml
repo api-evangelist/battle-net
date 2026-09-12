@@ -1,6 +1,7 @@
 aid: battle-net
 url: https://raw.githubusercontent.com/api-evangelist/battle-net/refs/heads/main/apis.yml
 name: Battle.net
+x-parent: microsoft-xbox
 description: Battle.net is Blizzard Entertainment's online gaming platform and developer API ecosystem. It provides game data
   and player profile APIs for World of Warcraft, Diablo III, Hearthstone, and StarCraft II via OAuth 2.0-secured REST endpoints,
   enabling developers to build applications that access character data, game statistics, leaderboards, card collections, and
