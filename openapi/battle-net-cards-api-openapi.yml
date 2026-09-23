@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Battle.net Hearthstone Game Data Card Backs Cards API
+  title: Battle.net Hearthstone Game Data Cards API
   description: The Hearthstone Game Data API provides access to Hearthstone card data, card back collections, deck building, and metadata. Authenticate with OAuth 2.0 client credentials flow to obtain an access token for use in all requests.
   version: '1.0'
   contact:
@@ -263,23 +263,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      title: Error Response
-      description: An error response from the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-          example: 404
-        type:
-          type: string
-          description: Error type.
-          example: BLZWEBAPI00000404
-        detail:
-          type: string
-          description: A description of the error.
-          example: Not Found
     CardSearchResponse:
       type: object
       title: Card Search Response
@@ -302,6 +285,23 @@ components:
           type: integer
           description: Current page number.
           example: 1
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
     Card:
       type: object
       title: Card
