@@ -155,23 +155,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    MetadataItem:
-      type: object
-      title: Metadata Item
-      description: A generic metadata item.
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the metadata item.
-          example: 1
-        name:
-          type: string
-          description: The name of the metadata item.
-          example: Basic
-        slug:
-          type: string
-          description: The slug identifier.
-          example: basic
     Metadata:
       type: object
       title: Metadata
@@ -229,6 +212,23 @@ components:
           type: string
           description: A description of the error.
           example: Not Found
+    MetadataItem:
+      type: object
+      title: Metadata Item
+      description: A generic metadata item.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the metadata item.
+          example: 1
+        name:
+          type: string
+          description: The name of the metadata item.
+          example: Basic
+        slug:
+          type: string
+          description: The slug identifier.
+          example: basic
   securitySchemes:
     oauth2:
       type: oauth2

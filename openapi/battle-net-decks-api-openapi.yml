@@ -78,23 +78,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
+    DeckClass:
       type: object
-      title: Error Response
-      description: An error response from the API.
+      title: Deck Class
+      description: The class associated with a deck.
       properties:
-        code:
+        slug:
+          type: string
+          description: The class slug.
+          example: mage
+        id:
           type: integer
-          description: HTTP error code.
-          example: 404
-        type:
+          description: The class ID.
+          example: 3
+        name:
           type: string
-          description: Error type.
-          example: BLZWEBAPI00000404
-        detail:
-          type: string
-          description: A description of the error.
-          example: Not Found
+          description: The class name.
+          example: Mage
     DeckCard:
       type: object
       title: Deck Card
@@ -116,6 +116,23 @@ components:
           type: string
           description: The card name.
           example: Ragnaros the Firelord
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
     Deck:
       type: object
       title: Deck
@@ -144,23 +161,6 @@ components:
           type: integer
           description: Total number of cards in the deck.
           example: 30
-    DeckClass:
-      type: object
-      title: Deck Class
-      description: The class associated with a deck.
-      properties:
-        slug:
-          type: string
-          description: The class slug.
-          example: mage
-        id:
-          type: integer
-          description: The class ID.
-          example: 3
-        name:
-          type: string
-          description: The class name.
-          example: Mage
   securitySchemes:
     oauth2:
       type: oauth2
