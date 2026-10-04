@@ -155,6 +155,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
     Metadata:
       type: object
       title: Metadata
@@ -195,23 +212,6 @@ components:
           items:
             $ref: '#/components/schemas/MetadataItem'
           description: List of minion types.
-    ErrorResponse:
-      type: object
-      title: Error Response
-      description: An error response from the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-          example: 404
-        type:
-          type: string
-          description: Error type.
-          example: BLZWEBAPI00000404
-        detail:
-          type: string
-          description: A description of the error.
-          example: Not Found
     MetadataItem:
       type: object
       title: Metadata Item

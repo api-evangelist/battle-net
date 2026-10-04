@@ -263,6 +263,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: An error response from the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP error code.
+          example: 404
+        type:
+          type: string
+          description: Error type.
+          example: BLZWEBAPI00000404
+        detail:
+          type: string
+          description: A description of the error.
+          example: Not Found
     CardSearchResponse:
       type: object
       title: Card Search Response
@@ -366,23 +383,6 @@ components:
           items:
             type: integer
           description: IDs of child cards.
-    ErrorResponse:
-      type: object
-      title: Error Response
-      description: An error response from the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP error code.
-          example: 404
-        type:
-          type: string
-          description: Error type.
-          example: BLZWEBAPI00000404
-        detail:
-          type: string
-          description: A description of the error.
-          example: Not Found
   securitySchemes:
     oauth2:
       type: oauth2
