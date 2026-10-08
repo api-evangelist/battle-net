@@ -253,6 +253,10 @@ apis:
   - type: JSONSchema
     url: json-schema/hearthstone-game-data-metadata-schema.json
 common:
+- type: Plans
+  url: plans/battle-net-plans-pricing.yml
+- type: FinOps
+  url: finops/battle-net-finops.yml
 - type: Website
   url: https://battle.net
 - type: PostmanWorkspace
