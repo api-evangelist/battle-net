@@ -108,10 +108,8 @@ apis:
 unitEconomics:
   - name: Cost per Active Consumer
     metric: '0 / active_consumers (no direct cost; opportunity cost = engineering time + partner relationship)'
-    target: track engineering hours instead
   - name: Headroom Against Ceiling
     metric: peak_requests_per_hour / 36000
-    target: '< 0.7 to trigger partner-access conversation'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
