@@ -146,6 +146,36 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CardBack:
+      type: object
+      title: Card Back
+      description: A Hearthstone card back object.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the card back.
+          example: 1
+        sortCategory:
+          type: integer
+          description: The sort category.
+          example: 2
+        text:
+          type: string
+          description: Description of the card back.
+          example: The standard card back for Hearthstone.
+        name:
+          type: string
+          description: The name of the card back.
+          example: Classic
+        image:
+          type: string
+          format: uri
+          description: URL of the card back image.
+          example: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png
+        slug:
+          type: string
+          description: A human-readable identifier for the card back.
+          example: classic
     ErrorResponse:
       type: object
       title: Error Response
@@ -185,36 +215,6 @@ components:
           type: integer
           description: Current page number.
           example: 1
-    CardBack:
-      type: object
-      title: Card Back
-      description: A Hearthstone card back object.
-      properties:
-        id:
-          type: integer
-          description: The unique ID of the card back.
-          example: 1
-        sortCategory:
-          type: integer
-          description: The sort category.
-          example: 2
-        text:
-          type: string
-          description: Description of the card back.
-          example: The standard card back for Hearthstone.
-        name:
-          type: string
-          description: The name of the card back.
-          example: Classic
-        image:
-          type: string
-          format: uri
-          description: URL of the card back image.
-          example: https://d15f34w2p8l1cc.cloudfront.net/hearthstone/card-backs/classic.png
-        slug:
-          type: string
-          description: A human-readable identifier for the card back.
-          example: classic
   securitySchemes:
     oauth2:
       type: oauth2
