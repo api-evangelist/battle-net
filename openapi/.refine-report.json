@@ -1,9 +1,11 @@
 {
   "provider": "battle-net",
   "sources": [
+    "_original/battle-net-openapi.json",
     "_ae-authored/battle-net-hearthstone-game-data.yaml"
   ],
   "outputs": [
+    "battle-net-index-controller-api-openapi.yml",
     "battle-net-card-backs-api-openapi.yml",
     "battle-net-cards-api-openapi.yml",
     "battle-net-decks-api-openapi.yml",
@@ -13,9 +15,11 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "battle-net-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "battle-net-openapi.json: declared missing tag: index-controller",
     "battle-net-hearthstone-game-data.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "apis.yml register: written (+1 apis, 13 total)"
   ],
   "skipped": [
     "battle-net-card-backs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
